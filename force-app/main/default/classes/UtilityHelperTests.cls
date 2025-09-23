@@ -82,6 +82,19 @@ public with sharing class UtilityHelperTests {
 			System.assertEquals(true, UtilityHelper.isValidEmail(emailRandom));
 		}
 	}
+	@IsTest
+	static void testIsNullOrEmptyList() {
+		User systemAdminUser = generateAdminUser();
+		System.runAs(systemAdminUser) {
+			Test.startTest();
+			List<Object> listEmpty = new List<Object>();
+			List<Object> listNotEmpty = new List<Object>{ 'test' };
+			Test.stopTest();
+			System.assertEquals(true, UtilityHelper.isNullOrEmptyList(listEmpty));
+			System.assertEquals(false, UtilityHelper.isNullOrEmptyList(listNotEmpty));
+		}
+	}
+
 	private static User generateAdminUser() {
 		Profile profileCM = [SELECT Id FROM Profile WHERE name = 'System Administrator'];
 		UserRole roleCM = [SELECT Id FROM UserRole WHERE PortalType = 'None' LIMIT 1];

@@ -1,4 +1,4 @@
-global with sharing class DynamicRecordCleanup extends QueueableBatchBase implements System.Queueable {
+public with sharing class DynamicRecordCleanup extends QueueableBatchBase implements System.Queueable {
 	List<SObject> recordsToProcess { get; set; }
 	RecordCleanupWrapper currentSetting;
 	@TestVisible
@@ -35,7 +35,7 @@ global with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 		this.params = params;
 	}
 
-	global void execute(System.QueueableContext qe) {
+	public void execute(System.QueueableContext qe) {
 		List<SObject> recordsToUpdate = new List<SObject>();
 		List<SObject> recordsToDelete = new List<SObject>();
 		if (recordsToProcess != null && recordsToProcess.size() > 0) {
@@ -73,7 +73,7 @@ global with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 					archivalConditions +
 					' AND Id NOT IN :exclusionSet LIMIT ' +
 					BATCH_SIZE;
-				recordsToProcess = Database.query(query);
+				recordsToProcess = Database.query(String.escapeSingleQuotes(query));
 			} else {
 				recordsToProcess = new List<SObject>();
 			}
@@ -112,6 +112,7 @@ global with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 			SELECT SObject_Name__c, Archive_Conditions__c
 			FROM Record_Cleanup__mdt
 			WHERE Archive_Conditions__c != NULL
+			WITH SYSTEM_MODE
 			ORDER BY SObject_Name__c
 		];
 		for (Record_Cleanup__mdt cleanupSetting : recordCleanupSettings) {
@@ -141,7 +142,7 @@ global with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 			return this.setting;
 		}
 	}
-
+	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected override void finish() {
 	}
 }

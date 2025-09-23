@@ -115,4 +115,15 @@ public with sharing class UtilityHelper {
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
 	}
+	/*********************************************************************************************************
+	 * @name			isNullOrEmptyList
+	 * @author			JulianHurtado <k-julian.hurtado@kaseya.com>
+	 * @created			22 / 09 / 2025
+	 * @description		Checks if a list is null or empty
+	 * @param			thisArray List<Object> : List to be checked
+	 * @return			A boolean value of true if the list is null or empty
+	 **********************************************************************************************************/
+	public static Boolean isNullOrEmptyList(List<Object> thisArray) {
+		return thisArray == null || thisArray.isEmpty();
+	}
 }
