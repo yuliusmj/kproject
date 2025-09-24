@@ -9,7 +9,6 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 			if (cleanupsLeft == null) {
 				cleanupsLeft = true;
 			}
-
 			return cleanupsLeft;
 		}
 		set;
@@ -41,12 +40,12 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 		if (recordsToProcess != null && recordsToProcess.size() > 0) {
 			for (SObject recordToProcess : recordsToProcess) {
 				if (
-					(Boolean) recordToProcess.get('Marked_for_Archive__c') &&
+					//(Boolean) recordToProcess.get('Marked_for_Archive__c') &&
 					(DateTime) recordToProcess.get('LastModifiedDate') != System.today()
 				) {
 					recordsToDelete.add(recordToProcess);
 				} else {
-					recordToProcess.put('Marked_for_Archive__c', true);
+					//recordToProcess.put('Marked_for_Archive__c', true);
 					recordsToUpdate.add(recordToProcess);
 				}
 			}
@@ -66,8 +65,9 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 			String sobjectName = thisCleanupSetting.SObject_Name__c;
 			String archivalConditions = thisCleanupSetting.Archive_Conditions__c;
 			if (archivalConditions != null) {
+				//Marked_for_Archive__c
 				String query =
-					'SELECT Id, Marked_for_Archive__c, LastModifiedDate FROM ' +
+					'SELECT Id , LastModifiedDate FROM ' +
 					sobjectName +
 					' WHERE ' +
 					archivalConditions +
@@ -111,7 +111,7 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 		List<Record_Cleanup__mdt> recordCleanupSettings = [
 			SELECT SObject_Name__c, Archive_Conditions__c
 			FROM Record_Cleanup__mdt
-			WHERE Archive_Conditions__c != NULL
+			WHERE Delete_After_X_Days__c != NULL
 			WITH SYSTEM_MODE
 			ORDER BY SObject_Name__c
 		];
