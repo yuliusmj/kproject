@@ -31,6 +31,7 @@
  *	To be consistent with Mockito, the capturer does not perform any checks on the type of the argument.
  * 	@group Core
  */
+@SuppressWarnings('PMD')
 public with sharing class fflib_ArgumentCaptor {
 	protected List<Object> argumentsCaptured = new List<Object>();
 

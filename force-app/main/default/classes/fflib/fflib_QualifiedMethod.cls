@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2016-2017 FinancialForce.com, inc.  All rights reserved.
  */
+@SuppressWarnings('PMD')
 public with sharing class fflib_QualifiedMethod {
 	public final Object mockInstance;
 	public final String typeName;

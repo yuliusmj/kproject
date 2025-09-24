@@ -5,6 +5,7 @@
 /**
  * @nodoc
  */
+@SuppressWarnings('PMD')
 @isTest
 private class fflib_AnswerTest {
 	private static fflib_InvocationOnMock actualInvocation = null;

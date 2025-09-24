@@ -7,6 +7,33 @@
  * 1.0      28-03-2025  Deloitte  InitalVersion
  **/
 public inherited sharing class Constants {
+	//Oracle Response Processing Constants
+	public static final String ORACLE_RESPONSE_SOURCE_TRANSACTION_ID = 'sourceTransactionID';
+	public static final String ORACLE_RESPONSE_SOURCE_SYSTEM = 'sourceSystem';
+	public static final String ORACLE_RESPONSE_TRANSACTION_TYPE = 'transactionType';
+	public static final String ORACLE_RESPONSE_ORDER_NUMBER = 'orderNumber';
+	public static final String ORACLE_RESPONSE_ORACLE_ORDER_ID = 'oracleOrderID';
+	public static final String ORACLE_RESPONSE_ORDER_INTEGRATION_EVENT_ID = 'orderIntegrationEventId';
+	public static final String ORACLE_RESPONSE_ORACLE_VALIDATION_STATUS = 'oracleValdiationStatus';
+	public static final String ORACLE_RESPONSE_ORACLE_VALIDATION_MESSAGE = 'oracleValidationMessage';
+	public static final String ORACLE_RESPONSE_LINE_TIEBACKS = 'lineTiebackIds';
+	public static final String ORACLE_RESPONSE_SF_ORDER_LINE_NUMBER = 'salesforceOrderLineNumber';
+	public static final String ORACLE_RESPONSE_RMA_ELIGIBLE = 'rmaEligible';
+	public static final String ORACLE_RESPONSE_TRUE = 'true';
+	public static final String ORACLE_RESPONSE_FALSE = 'false';
+	public static final String ORACLE_RESPONSE_ORDER_LINES = 'oracleOrderLines';
+	public static final String ORACLE_RESPONSE_ORDER_LINE_ID = 'oracleOrderLineID';
+	public static final String ORACLE_RESPONSE_FULFILLMENT_LINE_ID = 'fulfillmentLineID';
+	public static final String ORACLE_RESPONSE_SF_DEVICE_REC_ID = 'sfDeviceRecId';
+	public static final String ORACLE_RESPONSE_MAC = 'mac';
+	public static final String ORACLE_ORDER_LINE_ID_FIELD = 'oracleOrderLineID__c';
+	public static final String FULFILLMENT_LINE_ID_FIELD = 'fulfillmentLineID__c';
+	public static final String ORDER_ITEM_ORDER_LINE_FIELD = 'Order_Line__c';
+	public static final String DEVICE_ORDER_PRODUCT_FIELD = 'Order_Product__c';
+	public static final String ORACLE_PROCESSING_SUCCESS_STATUS = 'Success';
+	public static final String ORACLE_PROCESSING_ERROR_STATUS = 'Error';
+	public static final String ORACLE_RESPONSE_PROCESSING_CLASS = 'OracleOrderResponseProcessor';
+
 	//Response Related Constants
 	public static final String STATUS_PROCESSED = 'Processed';
 	public static final String STATUS_BO_UPDATE_FAILED = 'BO update failed';
@@ -104,6 +131,11 @@ public inherited sharing class Constants {
 	public static final String IE_TRIGGER_HELPER_PUBLISH_METHOD = 'publishRecordSyncForIntegrationEvents';
 	public static final String IE_TRIGGER_HELPER_PROCESSRECORD_METHOD = 'processIntegrationRecords';
 	public static final String ORACLE_TARGET_SYSTEM = 'Oracle';
+	public static final String ORACLE_RESPONSE_TRUE_VALUE = 'Oracle Response True Value';
+	public static final String DEVICE_ORACLE_ORDER_LINE_ID_FIELD = 'Device Oracle Order Line ID';
+	public static final String DEVICE_FULFILLMENT_LINE_ID_FIELD = 'Device Fulfillment Line ID';
+	public static final String ORDER_ITEM_ORACLE_ORDER_LINE_ID_FIELD = 'Order Item Oracle Order Line ID';
+	public static final String ORDER_ITEM_FULFILLMENT_LINE_ID_FIELD = 'Order Item Fulfillment Line ID';
 	public static final String K1_TARGET_SYSTEM = 'KaseyaOne';
 	public static final String INTEGRATION_EVENT_TARGET_SYSTEM_LIFEBOAT = 'LifeBoat';
 	public static final String INTEGRATION_EVENT_TARGET_SYSTEM_SALESFORCE = 'Salesforce';
@@ -613,6 +645,7 @@ public inherited sharing class Constants {
 	public static final String DEVICE = 'Device';
 	public static final String QUOTELINEITEM = 'QuoteLineItems';
 	public static final String TRANSACTIONTYPE = 'TransactionType';
+	public static final String QUOTETYPE = 'QuoteType';
 	public static final String PURCHASED = 'Purchased';
 	public static final String WINBACKREINSTATEMENT = 'WinBack/Reinstatement';
 	//Custom Permission Labels
@@ -722,7 +755,7 @@ public inherited sharing class Constants {
 
 	public static final String ORDER_PAYLOAD_TRANS_KEY = 'transactionType';
 	//Device Status Constants
-	public static final String DEVICE_STATUS_PENDING_RETURN_INVOICE_GENERATED = 'Pending Return - Invoice Generated';
+	public static final String PENDING_RETURN_INVOICE_GENERATED = 'Pending Return - Invoice Generated';
 	public static final String DEVICE_STATUS_PENDING_RETURN = 'Pending Return';
 
 	//DocusignHTTPService Constants
@@ -764,6 +797,8 @@ public inherited sharing class Constants {
 	public static final String GR4VY_PAYMENTLINK_SUCCESS = 'Payment link generated successfully for Quote: ';
 	public static final String GR4VY_PAYMENTLINK_ERROR = 'Failed to generate payment link. Please check quote details and try again.';
 	public static final String GR4VY_PAYMENTLINK_UNEXPERROR = 'Unexpected error: ';
+	public static final String INTEGRATION_SOURCE_GR4VY = 'Gr4vy';
+	public static final String QUOTE_PAYMENTINFOSTATUS_PENDING = 'Pending';
 
 	//OmnistudioInvoiceDataMapperFunctions
 	public static final String SUFFIX = 'suffix';

@@ -5,6 +5,7 @@
 /**
  * @group Core
  */
+@SuppressWarnings('PMD')
 public with sharing class fflib_InOrder extends fflib_MethodVerifier {
 	private final List<Object> unorderedMockInstances;
 	private Integer idxMethodCall = 0;

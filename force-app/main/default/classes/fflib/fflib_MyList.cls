@@ -5,6 +5,7 @@
 /**
  * @nodoc
  */
+@SuppressWarnings('PMD')
 @isTest
 public with sharing class fflib_MyList implements IList {
 	public interface IList {

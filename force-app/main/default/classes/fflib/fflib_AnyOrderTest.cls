@@ -5,6 +5,7 @@
 /**
  * @nodoc
  */
+@SuppressWarnings('PMD')
 @isTest
 private class fflib_AnyOrderTest {
 	/*

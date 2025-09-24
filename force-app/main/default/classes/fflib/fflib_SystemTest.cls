@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2017 FinancialForce.com, inc.  All rights reserved.
  */
+@SuppressWarnings('PMD')
 @IsTest
 private class fflib_SystemTest {
 	@IsTest

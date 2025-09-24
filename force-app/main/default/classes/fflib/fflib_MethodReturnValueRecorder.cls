@@ -27,6 +27,7 @@
 /**
  * @group Core
  */
+@SuppressWarnings('PMD')
 public with sharing class fflib_MethodReturnValueRecorder {
 	public Boolean Stubbing { get; set; }
 

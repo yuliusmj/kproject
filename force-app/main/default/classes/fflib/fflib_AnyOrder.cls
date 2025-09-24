@@ -7,6 +7,7 @@
  *	The order of method calls is not important.
  *	@group Core
  */
+@SuppressWarnings('PMD')
 public class fflib_AnyOrder extends fflib_MethodVerifier {
 	/*
 	 * Verifies a method was invoked the expected number of times, with the expected arguments.

@@ -5,6 +5,7 @@
 /**
  * @group Core
  */
+@SuppressWarnings('PMD')
 public with sharing class fflib_QualifiedMethodAndArgValues {
 	private final fflib_QualifiedMethod qm;
 	private final fflib_MethodArgValues args;

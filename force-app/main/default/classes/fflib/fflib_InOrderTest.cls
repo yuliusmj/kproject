@@ -1,7 +1,7 @@
 /*
  Copyright (c) 2014-2017 FinancialForce.com, inc.  All rights reserved.
  */
-
+@SuppressWarnings('PMD')
 @isTest
 private class fflib_InOrderTest {
 	private static fflib_ApexMocks MY_MOCKS = new fflib_ApexMocks();

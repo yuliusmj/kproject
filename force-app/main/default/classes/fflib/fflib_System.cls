@@ -6,7 +6,7 @@
  * @group Core
  * Contains counterparts for helper methods in the native System class.
  */
-
+@SuppressWarnings('PMD')
 public class fflib_System {
 	/**
 	 * Verifies that the supplied argument is meaningfully equivalent to the expected argument, as defined by its matcher.

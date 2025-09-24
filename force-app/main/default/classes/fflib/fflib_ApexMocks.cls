@@ -5,6 +5,7 @@
 /**
  * @group Core
  */
+@SuppressWarnings('PMD')
 public with sharing class fflib_ApexMocks implements System.StubProvider {
 	public static final Integer NEVER = 0;
 

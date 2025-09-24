@@ -28,6 +28,7 @@
  * @group Core
  * Class defining a method return value.
  */
+@SuppressWarnings('PMD')
 @isTest
 public with sharing class fflib_MethodReturnValue {
 	private StandardAnswer basicAnswer = new StandardAnswer();

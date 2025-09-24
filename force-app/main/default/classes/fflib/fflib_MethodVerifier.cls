@@ -6,6 +6,7 @@
  *	This class implements the actual verification.
  *	@group Core
  */
+@SuppressWarnings('PMD')
 public abstract class fflib_MethodVerifier {
 	/**
 	 * Verify a method was called on a mock object.

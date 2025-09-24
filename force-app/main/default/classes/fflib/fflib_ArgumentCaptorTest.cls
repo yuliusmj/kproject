@@ -4,6 +4,7 @@
 /**
  * @nodoc
  */
+@SuppressWarnings('PMD')
 @isTest
 private class fflib_ArgumentCaptorTest {
 	@isTest

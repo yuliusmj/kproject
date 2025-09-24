@@ -5,6 +5,7 @@
 /**
  * @group Core
  */
+@SuppressWarnings('PMD')
 public with sharing class fflib_MethodCountRecorder {
 	/*
 	 * Map of method arguments by type name.
