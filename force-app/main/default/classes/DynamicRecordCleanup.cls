@@ -2,6 +2,8 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 	List<SObject> recordsToProcess { get; set; }
 	RecordCleanupWrapper currentSetting;
 	@TestVisible
+	private static final Integer BATCH_SIZE = 2000;
+	@TestVisible
 	List<RecordCleanupWrapper> cleanupSettings;
 	@TestVisible
 	Boolean cleanupsLeft {
@@ -13,10 +15,14 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 		}
 		set;
 	}
-
-	@TestVisible
-	private static final Integer BATCH_SIZE = 2000;
-
+	/*********************************************************************************************************
+	 * @name			DynamicRecordCleanup
+	 * @author			JulianHurtado <k-julian.hurtado@kaseya.com>
+	 * @created			24 / 09 / 2025
+	 * @description		Constructor for the DynamicRecordCleanup class
+	 * @param			params QueueableBatchParams : The parameters for the batch
+	 * @param			settings List<RecordCleanupWrapper> : The settings for the cleanup
+	 **********************************************************************************************************/
 	public DynamicRecordCleanup(QueueableBatchParams params, List<RecordCleanupWrapper> settings) {
 		if (params == null) {
 			setCleanupRecords();
@@ -24,13 +30,10 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 			params = new QueueableBatchParams(recordsToProcess, BATCH_SIZE);
 		} else {
 			this.cleanupSettings = settings;
-			// Using "finishedRecords" to denote failures; actual finished and successful records will no longer meet query criteria
 			recordsToProcess = getRecordsForDeletion(params.finishedRecords);
 			params.setRecordsToProcess(recordsToProcess);
-
 			this.cleanupSettings = settings;
 		}
-
 		this.params = params;
 	}
 
@@ -38,6 +41,12 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 		List<SObject> recordsToUpdate = new List<SObject>();
 		List<SObject> recordsToDelete = new List<SObject>();
 		if (recordsToProcess != null && recordsToProcess.size() > 0) {
+			System.debug(
+				'recordsToProcess size: ' +
+					recordsToProcess.size() +
+					' recordsToProcess: ' +
+					recordsToProcess[0].getSObjectType()
+			);
 			for (SObject recordToProcess : recordsToProcess) {
 				if (
 					//(Boolean) recordToProcess.get('Marked_for_Archive__c') &&
@@ -49,8 +58,10 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 					recordsToUpdate.add(recordToProcess);
 				}
 			}
-			Database.SaveResult[] updateResults = Database.update(recordsToUpdate, false);
-			Database.DeleteResult[] deleteResults = Database.delete(recordsToDelete, false);
+			System.debug('Update records: ' + recordsToUpdate.size());
+			Database.SaveResult[] updateResults = Database.update(recordsToUpdate, false, AccessLevel.SYSTEM_MODE);
+			System.debug('deleted records');
+			// Database.DeleteResult[] deleteResults = Database.delete(recordsToDelete, false);
 		}
 
 		if (cleanupsLeft && !Test.isRunningTest()) {
@@ -63,19 +74,32 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 		if (cleanupWrapper != null) {
 			Record_Cleanup__mdt thisCleanupSetting = cleanupWrapper.setting;
 			String sobjectName = thisCleanupSetting.SObject_Name__c;
+			Integer days = Integer.valueOf(thisCleanupSetting.Delete_After_X_Days__c);
 			String archivalConditions = thisCleanupSetting.Archive_Conditions__c;
+			String archivalFieldsQuery = 'SELECT Id , LastModifiedDate FROM ';
+			String exclusionQuery = ' AND Id NOT IN :exclusionSet LIMIT ';
 			if (archivalConditions != null) {
 				//Marked_for_Archive__c
+				String query =
+					archivalFieldsQuery +
+					sobjectName +
+					' WHERE ' +
+					archivalConditions +
+					' CreatedDate <N_DAYS_AGO:' +
+					days +
+					exclusionQuery +
+					BATCH_SIZE;
+				recordsToProcess = Database.query(String.escapeSingleQuotes(query));
+			} else {
 				String query =
 					'SELECT Id , LastModifiedDate FROM ' +
 					sobjectName +
 					' WHERE ' +
-					archivalConditions +
-					' AND Id NOT IN :exclusionSet LIMIT ' +
+					'CreatedDate <N_DAYS_AGO:' +
+					days +
+					exclusionQuery +
 					BATCH_SIZE;
 				recordsToProcess = Database.query(String.escapeSingleQuotes(query));
-			} else {
-				recordsToProcess = new List<SObject>();
 			}
 		} else {
 			recordsToProcess = new List<SObject>();
@@ -88,13 +112,11 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 				cleanupWrapper = getNextRecordCleanup();
 			}
 		}
-
 		currentSetting = cleanupWrapper;
 		cleanupsLeft = cleanupWrapper != null || !recordsToProcess.isEmpty();
 
 		return recordsToProcess;
 	}
-
 	@TestVisible
 	private RecordCleanupWrapper getNextRecordCleanup() {
 		for (RecordCleanupWrapper thisWrapper : cleanupSettings) {
@@ -102,16 +124,19 @@ public with sharing class DynamicRecordCleanup extends QueueableBatchBase implem
 				return thisWrapper;
 			}
 		}
-
 		return null;
 	}
-
+	/*********************************************************************************************************
+	 * @name			setCleanupRecords
+	 * @author			JulianHurtado <k-julian.hurtado@kaseya.com>
+	 * @created			24 / 09 / 2025
+	 * @description		Gets the record cleanup settings from the custom metadata and sets them in the cleanup settings
+	 **********************************************************************************************************/
 	public void setCleanupRecords() {
 		this.cleanupSettings = new List<RecordCleanupWrapper>();
 		List<Record_Cleanup__mdt> recordCleanupSettings = [
-			SELECT SObject_Name__c, Archive_Conditions__c
+			SELECT SObject_Name__c, Archive_Conditions__c, Delete_After_X_Days__c
 			FROM Record_Cleanup__mdt
-			WHERE Delete_After_X_Days__c != NULL
 			WITH SYSTEM_MODE
 			ORDER BY SObject_Name__c
 		];

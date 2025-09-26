@@ -1,0 +1,19 @@
+---
+config:
+  look: classic
+  theme: redux-color
+---
+sequenceDiagram
+  participant Caller as Caller
+  participant CalloutFactory as CalloutFactory
+  participant CMDT as CMDT(API_Resource_Endpoint__mdt)
+  participant RestApiCallout as RestApiCallout
+  participant External API as External API
+  Caller ->> CalloutFactory: get(configName)
+  CalloutFactory ->> CMDT: query config
+  CalloutFactory ->> RestApiCallout: new(config)
+  Caller ->> RestApiCallout: performCallout(body)
+  CalloutFactory -->> RestApiCallout: build request
+  RestApiCallout ->> External API: HTTP Request (namedCredential + endpoint)
+  External API -->> RestApiCallout: HTTP Response
+  RestApiCallout -->> Caller: result / exception
