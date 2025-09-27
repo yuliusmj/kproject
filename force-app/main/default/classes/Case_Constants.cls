@@ -13,7 +13,7 @@
  **************************************************************************************************************/
 @IsTest
 @SuppressWarnings('PMD.ApexDoc,PMD.PropertyNamingConventions,PMD.FieldNamingConventions')
-public with sharing class Case_Constants {
+public without sharing class Case_Constants {
 	//******************************************************************************************************
 	// Groups
 	//******************************************************************************************************

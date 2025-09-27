@@ -7,35 +7,9 @@
  * 1.0      28-03-2025  Deloitte  InitalVersion
  **/
 public inherited sharing class Constants {
-	//Oracle Response Processing Constants
-	public static final String ORACLE_RESPONSE_SOURCE_TRANSACTION_ID = 'sourceTransactionID';
-	public static final String ORACLE_RESPONSE_SOURCE_SYSTEM = 'sourceSystem';
-	public static final String ORACLE_RESPONSE_TRANSACTION_TYPE = 'transactionType';
-	public static final String ORACLE_RESPONSE_ORDER_NUMBER = 'orderNumber';
-	public static final String ORACLE_RESPONSE_ORACLE_ORDER_ID = 'oracleOrderID';
-	public static final String ORACLE_RESPONSE_ORDER_INTEGRATION_EVENT_ID = 'orderIntegrationEventId';
-	public static final String ORACLE_RESPONSE_ORACLE_VALIDATION_STATUS = 'oracleValdiationStatus';
-	public static final String ORACLE_RESPONSE_ORACLE_VALIDATION_MESSAGE = 'oracleValidationMessage';
-	public static final String ORACLE_RESPONSE_LINE_TIEBACKS = 'lineTiebackIds';
-	public static final String ORACLE_RESPONSE_SF_ORDER_LINE_NUMBER = 'salesforceOrderLineNumber';
-	public static final String ORACLE_RESPONSE_RMA_ELIGIBLE = 'rmaEligible';
-	public static final String ORACLE_RESPONSE_TRUE = 'true';
-	public static final String ORACLE_RESPONSE_FALSE = 'false';
-	public static final String ORACLE_RESPONSE_ORDER_LINES = 'oracleOrderLines';
-	public static final String ORACLE_RESPONSE_ORDER_LINE_ID = 'oracleOrderLineID';
-	public static final String ORACLE_RESPONSE_FULFILLMENT_LINE_ID = 'fulfillmentLineID';
-	public static final String ORACLE_RESPONSE_SF_DEVICE_REC_ID = 'sfDeviceRecId';
-	public static final String ORACLE_RESPONSE_MAC = 'mac';
-	public static final String ORACLE_ORDER_LINE_ID_FIELD = 'oracleOrderLineID__c';
-	public static final String FULFILLMENT_LINE_ID_FIELD = 'fulfillmentLineID__c';
-	public static final String ORDER_ITEM_ORDER_LINE_FIELD = 'Order_Line__c';
-	public static final String DEVICE_ORDER_PRODUCT_FIELD = 'Order_Product__c';
-	public static final String ORACLE_PROCESSING_SUCCESS_STATUS = 'Success';
-	public static final String ORACLE_PROCESSING_ERROR_STATUS = 'Error';
-	public static final String ORACLE_RESPONSE_PROCESSING_CLASS = 'OracleOrderResponseProcessor';
-
 	//Response Related Constants
 	public static final String STATUS_PROCESSED = 'Processed';
+	public static final String INTEGRATION_EVENT_CREATION_FAILED = 'Failed';
 	public static final String STATUS_BO_UPDATE_FAILED = 'BO update failed';
 	public static final String ERROR_CATEGORY_SF_INTERNAL = 'Salesforce Internal Error';
 	public static final String ERROR_CATEGORY_DATA = 'Data Error';
@@ -53,6 +27,7 @@ public inherited sharing class Constants {
 
 	public static final String INTEGRATION_EVENT_STATUS_BAD_RESPONSE = 'Bad Response';
 	public static final String INTEGRATION_EVENT_STATUS_READY_TO_RESYNC = 'Ready to Resync';
+	public static final String INTEGRATION_EVENT_STATUS_READY_FOR_RESYNC = 'Ready for Re-Sync';
 	public static final String INTEGRATION_EVENT_UUID = 'EventUuid';
 	public static final String INTEGRATION_EVENT_STATUS_PROCESSED = 'Processed';
 	public static final String INTEGRATION_EVENT_STATUS_ERROR = 'Error';
@@ -86,15 +61,15 @@ public inherited sharing class Constants {
 	public static final String ADDRESS_OBJECT_META_RECORD = 'Address_c';
 	public static final String TYPE_KEY = 'Type';
 	public static final String CUSTOMER_ACCOUNT_NUMBER_KEY = 'Customer_Account_Number__c';
-	public static final String UNIVERSAL_ACCOUNT_NUMBER_KEY = 'UniversalAccountNumber';
-	public static final String ACCOUNT_PARTY_ID = 'AccountPartyId';
-	public static final String ACCOUNT_PARTY_NAME = 'AccountPartyName';
-	public static final String ACCOUNT_PARTY_NUMBER = 'AccountPartyNumber';
+	public static final String ACCOUNT_PARTY_ID = 'Account.Party_Id__c';
+	public static final String ACCOUNT_PARTY_NAME = 'Account.Party_Name__c';
+	public static final String ACCOUNT_PARTY_NUMBER = 'Account.Party_Number__c';
 	public static final String ACCOUNT_ORACLE_ID = 'Account.Oracle_Id__c';
 	public static final String ACCOUNT_ADDRESS_PARTY_ID = 'Account__r.Party_Id__c';
 	public static final String ACCOUNT_ADDRESS_PARTY_NAME = 'Account__r.Party_Name__c';
 	public static final String ACCOUNT_ADDRESS_PARTY_NUMBER = 'Account__r.Party_Number__c';
 	public static final String ACCOUNT_ADDRESS_ORACLE_ID = 'Account__r.Oracle_Id__c';
+	public static final String UNIVERSAL_ACCOUNT_NUMBER_KEY = 'UniversalAccountNumber';
 	public static final String WITH_SECURITY_ENFORCED = ' WITH SECURITY_ENFORCED';
 	public static final String LIMIT_CLAUSE = ' LIMIT ';
 	public static final String WHERE_CLAUSE = ' WHERE ';
@@ -113,7 +88,6 @@ public inherited sharing class Constants {
 	public static final String INTEGRATION_EVENT_OBJECT_ORDER = 'Order';
 	public static final String INTEGRATION_EVENT_OBJECT_ORDERITEM = 'OrderItem';
 
-	public static final String INTEGRATION_EVENT_CREATION_FAILED = 'Integration Event Creation Failed';
 	public static final String INTEGRATION_EVENT_TYPE_CREATE = 'Create';
 	public static final String INTEGRATION_EVENT_TYPE_UPDATE = 'Update';
 	public static final String INTEGRATION_EVENT_STATUS_COMPLETED = 'Completed';
@@ -123,19 +97,10 @@ public inherited sharing class Constants {
 	public static final String INTEGRATION_EVENT_STATUS_NEW = 'New';
 	public static final String INTEGRATION_EVENT_STATUS_SUCCESS = 'Success';
 	public static final String INTEGRATION_EVENT_STATUS_READY_FOR_SYNC = 'Ready for Sync';
-	public static final String INTEGRATION_EVENT_SUBSTATUS_EVENT_PUBLISHED = 'Event Published';
-	public static final String INTEGRATION_EVENT_SUBSTATUS_EVENT_CONSUMED = 'Event Consumed';
-	public static final String INTEGRATION_EVENT_SUBSTATUS_RESPONSE_TIMED_OUT = 'Response Timed Out';
+	public static final String INTEGRATION_EVENT_STATUS_EVENT_CONSUMED = 'Event Consumed';
+	public static final String INTEGRATION_EVENT_STATUS_RESPONSE_TIMED_OUT = 'Response Timed Out';
 	public static final String INTEGRATION_EVENT_ERROR_TYPE_SERVICE_ERROR = 'Service Error';
-	public static final String INTEGRATION_EVENT_TRIGGER_HELPER = 'IntegrationEventTriggerHelper';
-	public static final String IE_TRIGGER_HELPER_PUBLISH_METHOD = 'publishRecordSyncForIntegrationEvents';
-	public static final String IE_TRIGGER_HELPER_PROCESSRECORD_METHOD = 'processIntegrationRecords';
 	public static final String ORACLE_TARGET_SYSTEM = 'Oracle';
-	public static final String ORACLE_RESPONSE_TRUE_VALUE = 'Oracle Response True Value';
-	public static final String DEVICE_ORACLE_ORDER_LINE_ID_FIELD = 'Device Oracle Order Line ID';
-	public static final String DEVICE_FULFILLMENT_LINE_ID_FIELD = 'Device Fulfillment Line ID';
-	public static final String ORDER_ITEM_ORACLE_ORDER_LINE_ID_FIELD = 'Order Item Oracle Order Line ID';
-	public static final String ORDER_ITEM_FULFILLMENT_LINE_ID_FIELD = 'Order Item Fulfillment Line ID';
 	public static final String K1_TARGET_SYSTEM = 'KaseyaOne';
 	public static final String INTEGRATION_EVENT_TARGET_SYSTEM_LIFEBOAT = 'LifeBoat';
 	public static final String INTEGRATION_EVENT_TARGET_SYSTEM_SALESFORCE = 'Salesforce';
@@ -147,8 +112,6 @@ public inherited sharing class Constants {
 	public static final String PDF_FILE_TYPE = 'PDF';
 	public static final String IE_CREATED = 'IE Created';
 	public static final String VALIDATION_PENDING = 'Validation Pending';
-	public static final String ERROR_HANDLER_RECORD_ID_FIELD = 'RecordId__c';
-	public static final String INTEGRATION_NAME = 'NewOrderSync';
 
 	public static final String INTEGRATION_EVENT_OBJECT_LEGALENTITY = 'LegalEntity';
 
@@ -160,6 +123,10 @@ public inherited sharing class Constants {
 	public static final String FULFILLMENT_STATUS_READY_FOR_SHIPMENT = 'Ready for Shipment';
 	public static final String DEVICE_STATUS_SHIPPED = 'Shipped';
 	public static final String DEVICE_STATUS_DELIVERED = 'Delivered';
+
+	//API Callout Status Constants
+	public static final String INTEGRATION_EVENT_STATUS_API_CALL_SUCCEEDED = 'API Call Succeeded';
+	public static final String INTEGRATION_EVENT_STATUS_API_CALL_FAILED = 'API Call Failed';
 	//Integration Field Set Names
 
 	//Product Status
@@ -195,6 +162,7 @@ public inherited sharing class Constants {
 	public static final String ORDER_LINE_INTEGRATION_EVENT_ID_KEY = 'orderLineIntegrationEventId';
 	public static final String PAYLOAD_GENERATOR_ACCOUNT_TYPE = 'Type';
 	public static final String PAYLOAD_GENERATOR_ACCOUNT_SUBTYPE = 'Account_Subtype__c';
+	public static final String INTEGRATION_NAME = 'NewOrderSync';
 
 	//Business Event Constants for Payload Generator
 	public static final String PAYLOAD_GENERATOR_BUSINESS_EVENT = 'BusinessEvent__c';
@@ -204,8 +172,6 @@ public inherited sharing class Constants {
 	public static final String ORDER_STATUS_IN_PROGRESS = 'In Progress';
 	public static final String ORDER_STATUS_ON_HOLD = 'On Hold';
 	public static final String ORDER_STATUS_COMPLETED = 'Activated';
-	public static final String ORDER_TRIGGER_HELPER = 'OrderTriggerHelper';
-	public static final String ORDER_TRIGGER_HELPER_CREATE_ACCOUNT_METHOD = 'createAccountRecordInIntegrationEvent';
 	public static final String ORDER_ORACLE_ID = '123456';
 	public static final String ORDER_ORACLE = 'ORACLE';
 	public static final String ORDER_ORACLE_PAYLOAD_FILE_NAME = 'Order_Payload_';
@@ -214,7 +180,6 @@ public inherited sharing class Constants {
 	public static final String ORDER_PRODUCT_STATUS_AWAITING_FULFILLMENT = 'Awaiting Fulfillment/ Provisioning';
 	//Order Constants
 	public static final String ACCOUNT_TRIGGER_HELPER = 'AccountTriggerHelper';
-	public static final String ACCOUNT_TRIGGER_HELPER_CREATE_IE_METHOD = 'createIntegrationEventsOnAccountUpdate';
 
 	//Out Of Office Record Related Constants
 	public static final string MESSAGE = 'Out Of Office Today';
@@ -242,6 +207,7 @@ public inherited sharing class Constants {
 	public static final String LEAD_COMPANY_I = 'test Company 1';
 	public static final String LEAD_STATUS_MQL = 'Marketing Qualified Lead';
 	public static final String LEAD_STATUS_MEL = 'Marketing Engaged Lead';
+	public static final String LEAD_STATUS_SA = 'Sales Attempting';
 
 	//Status
 	public static final String DRAFT = 'Draft';
@@ -443,11 +409,12 @@ public inherited sharing class Constants {
 	public static final String DIRECT_QUOTING = 'Direct Quoting';
 	public static final String ASSET_RENEWAL_NOTIF_CRON = '0 0 0 1 * ?';
 	public static final String RENEW = 'Renew';
+	public static final String NEGOTIATED_RENEWAL = 'Negotiated Renewal';
+
 	//LTCI-5180
 	public static final String CANCEL_AND_REPLACE = 'Cancel and Replace';
 
 	// LTCI-6533
-	public static final String TRANSACTION_NEW = 'New';
 	public static final String CROSS_SELL = 'Cross-Sell';
 
 	//LTCI-3088
@@ -483,9 +450,6 @@ public inherited sharing class Constants {
 	public static final String REASON_SOFTWARE_UPGRADE = 'Software Upgrade';
 	public static final String REASON_FIELD_UPGRADE_CAPACITY = 'Field Upgrade (capacity)';
 	public static final String REASON_RETENTION_UPGRADE = 'Retention Upgrade';
-	public static final String REASON_WINBACK = 'Winback';
-	public static final String REASON_REINSTATEMENT = 'Reinstatement';
-	public static final String REASON_WINBACK_REINSTATEMENT = 'Winback/Reinstatement';
 	public static final String TRANSACTION_TYPE_TRANSFERS = 'Transfers';
 	public static final String TRANSACTION_TYPE_NEW_BUSINESS = 'New Business';
 	public static final String TRANSACTION_TYPE_DEVICE_UPGRADE = 'Device Upgrade';
@@ -543,16 +507,16 @@ public inherited sharing class Constants {
 	public static final Decimal DEFAULT_QUANTITY = 1.0;
 	public static final String LOAD_INSTANCE = 'callout:LoadInstanceAPI';
 	public static final String CONTEXT_ID = 'contextId';
-	public static final String addDefaultConfiguration = 'addDefaultConfiguration';
-	public static final String executeConfigurationRules = 'executeConfigurationRules';
-	public static final String executePricing = 'executePricing';
-	public static final String qualifyAllProductsInTransaction = 'qualifyAllProductsInTransaction';
-	public static final String validateAmendRenewCancel = 'validateAmendRenewCancel';
-	public static final String validateProductCatalog = 'validateProductCatalog';
-	public static final String accountId = 'accountId';
-	public static final String configuratorOptions = 'configuratorOptions';
-	public static final String qualificationContext = 'qualificationContext';
-	public static final String transactionId = 'transactionId';
+	public static final String ADD_DEFAULT_CONFIGURATION = 'addDefaultConfiguration';
+	public static final String EXECUTE_CONFIGURATION_RULES = 'executeConfigurationRules';
+	public static final String EXECUTE_PRICING = 'executePricing';
+	public static final String QUALIFY_ALL_PRODUCTS_IN_TRANSACTION = 'qualifyAllProductsInTransaction';
+	public static final String VALIDATE_AMEND_RENEW_CANCEL = 'validateAmendRenewCancel';
+	public static final String VALIDATE_PRODUCT_CATALOG = 'validateProductCatalog';
+	public static final String ACCOUNT_ID = 'accountId';
+	public static final String CONFIGURATOR_OPTIONS = 'configuratorOptions';
+	public static final String QUALIFICATION_CONTEXT = 'qualificationContext';
+	public static final String TRANSACTION_ID = 'transactionId';
 	public static final String SALES_TRANSACTION_ID = 'salesTransactionId';
 	public static final String K365_ENDPOINT_EXP_UNIT_CODE = 'S-K365-EXP';
 	public static final String UNIFIED_RMM = 'Unified RMM';
@@ -645,7 +609,6 @@ public inherited sharing class Constants {
 	public static final String DEVICE = 'Device';
 	public static final String QUOTELINEITEM = 'QuoteLineItems';
 	public static final String TRANSACTIONTYPE = 'TransactionType';
-	public static final String QUOTETYPE = 'QuoteType';
 	public static final String PURCHASED = 'Purchased';
 	public static final String WINBACKREINSTATEMENT = 'WinBack/Reinstatement';
 	//Custom Permission Labels
@@ -654,7 +617,11 @@ public inherited sharing class Constants {
 	public static final String DEAL_DESK_CP = 'Deal_Desk_CP';
 	public static final String ORDER_GOVERNANCE_CP = 'Order_Governance';
 
+	//Error Handler Constants
+	public static final String ERROR_HANDLER_RECORD_ID_FIELD = 'RecordId__c';
+
 	//LTCI - 5696
+
 	public static final String IN_CANCEL = '_IN_CANCEL';
 	public static final String IN_AMENDMENT = '_IN_AMENDMENT';
 	public static final String IN_RENEWAL = '_IN_RENEWAL';
@@ -664,6 +631,9 @@ public inherited sharing class Constants {
 	public static final String DOWNSELL_SCENARIO = 'DOWNSELL_SCENARIO';
 	public static final String UPSELL_SCENARIO = 'UPSELL_SCENARIO';
 	public static final String IN_DEVICE_UPGRADE = '_IN_DEVICE_UPGRADE';
+	public static final String REASON_WINBACK = 'Winback';
+	public static final String REASON_REINSTATEMENT = 'Reinstatement';
+	public static final String REASON_WINBACK_REINSTATEMENT = 'Winback/Reinstatement';
 
 	public static final String INTEGRATION_EVENT_GET_INVOICES = 'invoices';
 	public static final String INTEGRATION_EVENT_GET_CREDITMEMOS = 'creditMemos';
@@ -680,6 +650,18 @@ public inherited sharing class Constants {
 	public static final Integer TEST_INSTALLMENTS_6 = 6;
 	public static final String STATUS_COMPLETED = 'Completed';
 	public static final String STATUS_READY_FOR_INVOICING = 'Ready for Invoicing';
+
+	//LTCI-3091
+
+	public static final String EDIINVOICE_ATTRIBUTE_BODY = 'body';
+	public static final String EDIINVOICE_ATTRIBUTE_BKTRANSACTIONREQUEST = 'bkTransactionRequest';
+	public static final String EDIINVOICE_ATTRIBUTE_PURCHASEORDER = 'purchaseOrder';
+	public static final String EDIINVOICE_ATTRIBUTE_RECEIVER = 'receiver';
+	public static final String EDIINVOICE_ATTRIBUTE_INTERCHANGEINFO = 'interchangeInfo';
+	public static final String EDIINVOICE_ATTRIBUTE_LINEITEMS = 'lineItems';
+	public static final String EDIINVOICE_ATTRIBUTE_SUMMARY = 'summary';
+	public static final String EDIINVOICE_ATTRIBUTE_SHIPMENT = 'shipment';
+	public static final String EDIINVOICE_ATTRIBUTE_INVOICE = 'invoice';
 
 	//EDI Integration Constants
 	public static final String EDI_REFERENCE_CODE_Q1 = 'Q1';
@@ -722,15 +704,12 @@ public inherited sharing class Constants {
 	public static final String RECORD_TYPE_FINAL = 'Final';
 	public static final String RECORD_TYPE_TRANSACTIONAL = 'Transactional';
 
-	public static final String EDIINVOICE_ATTRIBUTE_BODY = 'body';
-	public static final String EDIINVOICE_ATTRIBUTE_BKTRANSACTIONREQUEST = 'bkTransactionRequest';
-	public static final String EDIINVOICE_ATTRIBUTE_PURCHASEORDER = 'purchaseOrder';
-	public static final String EDIINVOICE_ATTRIBUTE_RECEIVER = 'receiver';
-	public static final String EDIINVOICE_ATTRIBUTE_INTERCHANGEINFO = 'interchangeInfo';
-	public static final String EDIINVOICE_ATTRIBUTE_LINEITEMS = 'lineItems';
-	public static final String EDIINVOICE_ATTRIBUTE_SUMMARY = 'summary';
-	public static final String EDIINVOICE_ATTRIBUTE_SHIPMENT = 'shipment';
-	public static final String EDIINVOICE_ATTRIBUTE_INVOICE = 'invoice';
+	// LTCI-9286: Device Selection Screen
+	public static final String SELECTED_DEVICES = 'selectedDevices';
+	public static final String SOFTWARE_UPGRADE_QL = 'softwareUpgradeQL';
+	public static final String DEVICE_ID = 'deviceId';
+	public static final String QUOTE_LINE_ID = 'quoteLineId';
+	public static final String TRANSACTION_REASON = 'transactionReason';
 
 	// LTCI-8135
 	public static final String REASON_DOWNSELL_SAAS = 'Downsell SAAS';
@@ -738,10 +717,25 @@ public inherited sharing class Constants {
 
 	//LTCI-1486
 	public static final String DO_NOT_SELL = 'Do Not Sell';
-	//public static final String K365_ENDPOINT_EXP_UNIT_CODE = 'Do Not Sell';
+
+	//Device Status Constants
+	public static final String DEVICE_STATUS_PENDING_RETURN_INVOICE_GENERATED = 'Pending Return - Invoice Generated';
+	public static final String DEVICE_STATUS_PENDING_RETURN = 'Pending Return';
+
+	//LTCI-8914
+	public static final String K_SHIP = 'K-SHIP';
+	public static final String PROFESSIONAL_SERVICES = 'Professional Services';
 	public static final String BUSINESS_EVENT_SHIPPED = 'Order Shipped';
 
-	//Usage Staging Constants
+	//LTCI-484
+	public static final String GR4VY_PAYMENTLINK_SUCCESS = 'Payment link generated successfully for Quote: ';
+	public static final String GR4VY_PAYMENTLINK_ERROR = 'Failed to generate payment link. Please check quote details and try again.';
+	public static final String GR4VY_PAYMENTLINK_UNEXPERROR = 'Unexpected error: ';
+	public static final String INTEGRATION_SOURCE_GR4VY = 'Gr4vy';
+	public static final String QUOTE_PAYMENTINFOSTATUS_PENDING = 'Pending';
+
+	public static final String ORDER_PAYLOAD_TRANS_KEY = 'transactionType';
+	public static final String QUOTETYPE = 'QuoteType';
 	//Usage Staging Constants
 	public static final String INSTANCE_LEVEL = 'Instance';
 	public static final String ASSET_LEVEL = 'Asset';
@@ -749,26 +743,18 @@ public inherited sharing class Constants {
 	public static final String USAGE_STAGING_STATUS_NEW = 'New';
 	public static final String USAGE_STAGING_STATUS_READY_FOR_PROCESSING = 'Ready for Usage Processing';
 	public static final String PENDING = 'Pending';
+	public static final String OVERAGE = 'Overage';
+	public static final String PROCESSED = 'Processed';
 
-	public static final String INTEGRATION_EVENT_STATUS_API_CALL_SUCCEEDED = 'API Call Succeeded';
-	public static final String INTEGRATION_EVENT_STATUS_API_CALL_FAILED = 'API Call Failed';
-
-	public static final String ORDER_PAYLOAD_TRANS_KEY = 'transactionType';
-	//Device Status Constants
-	public static final String PENDING_RETURN_INVOICE_GENERATED = 'Pending Return - Invoice Generated';
-	public static final String DEVICE_STATUS_PENDING_RETURN = 'Pending Return';
+	public static final String ORACLE_ORDER_LINE_ID_FIELD = 'OracleOrderLineID__c';
+	public static final String FULFILLMENT_LINE_ID_FIELD = 'FulfillmentLineID__c';
 
 	//DocusignHTTPService Constants
-	public static final String SUCCESS = 'Success';
 	public static final String SENDENVELOPE = 'sendEnvelope';
 	public static final String CONTENTVERSIONID = 'contentVersionId';
 	public static final String SIGNER_NAME = 'signerName';
 	public static final String SIGNER_EMAIL = 'signerEmail';
 	public static final String DOCUMENTNAME = 'documentName';
-	public static final String CONTENTVERSIONID_IS_REQUIRED_AND_WAS_NOT_PROVIDED = 'ContentVersionId is required and was not provided.';
-	public static final String RECIPIENT_NAME_AND_EMAIL_ARE_REQUIRED = 'Recipient name and email are required.';
-	public static final String NO_DOCUMENT_FOUND_FOR_THE_PROVIDED_CONTENTVERSIONID = 'No document found for the provided ContentVersionId: ';
-	public static final String PLEASE_SIGN_THIS_DOCUMENT = 'Please sign this document';
 	public static final String PDF = '.pdf';
 	public static final String SENT = 'sent';
 	public static final String SETENDPOINT =
@@ -781,24 +767,22 @@ public inherited sharing class Constants {
 	public static final String DOCUMENTENVELOPEID = 'documentEnvelopeId';
 	public static final String SIGNER = 'Signer';
 	public static final String CARBONCOPY = 'Carbon Copy';
-	public static final String DOCUSIGN_ERROR = 'DocuSign Error: ';
-	public static final String UNEXPECTED_ERROR_IN_DOCUSIGNSERVICE = 'Unexpected error in DocuSignService: ';
-	public static final String ONE_STRING = '1';
-	public static final String cc_NAME = 'ccName';
-	public static final String cc_EMAIL = 'ccEmail';
+	public static final String CC_NAME = 'ccName';
+	public static final String CC_EMAIL = 'ccEmail';
 	public static final String NAME = 'name';
 	public static final String EMAIL = 'email';
-
-	//LTCI-8914
-	public static final String K_SHIP = 'K-SHIP';
-	public static final String PROFESSIONAL_SERVICES = 'Professional Services';
-
-	//LTCI-484
-	public static final String GR4VY_PAYMENTLINK_SUCCESS = 'Payment link generated successfully for Quote: ';
-	public static final String GR4VY_PAYMENTLINK_ERROR = 'Failed to generate payment link. Please check quote details and try again.';
-	public static final String GR4VY_PAYMENTLINK_UNEXPERROR = 'Unexpected error: ';
-	public static final String INTEGRATION_SOURCE_GR4VY = 'Gr4vy';
-	public static final String QUOTE_PAYMENTINFOSTATUS_PENDING = 'Pending';
+	public static final String DOCUMENT_BASE64 = 'documentBase64';
+	public static final String FILEEXTENSION = 'fileExtension';
+	public static final String DOCUMENTID = 'documentId';
+	public static final String RECIPIENTS = 'recipients';
+	public static final String SIGNERS = 'signers';
+	public static final String CARBONCOPIES = 'carbonCopies';
+	public static final String RECIPIENTID = 'recipientId';
+	public static final String ROUTINGORDER = 'routingOrder';
+	public static final String TABS = 'tabs';
+	public static final String EMAILSUBJECT = 'emailSubject';
+	public static final String DOCUMENTS = 'documents';
+	public static final String CC_COUNT = 'ccCount';
 
 	//OmnistudioInvoiceDataMapperFunctions
 	public static final String SUFFIX = 'suffix';

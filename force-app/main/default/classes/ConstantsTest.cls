@@ -47,7 +47,6 @@ public class ConstantsTest {
 			Constants.ERROR_CATEGORY_BAD_RESPONSE,
 			'ERROR_CATEGORY_BAD_RESPONSE constant should match expected value'
 		);
-
 		// Integration Event Status Constants
 		System.assertEquals(
 			'Payload Created',
@@ -225,353 +224,213 @@ public class ConstantsTest {
 			Constants.UNIVERSAL_ACCOUNT_NUMBER_KEY,
 			'UNIVERSAL_ACCOUNT_NUMBER_KEY constant should match expected value'
 		);
+	}
 
-		// SOQL Related Constants
+	@IsTest
+	static void testConstantsCoverageOne() {
+		// Additional CLM Constants
+		System.assertEquals('isSuccess', Constants.IS_SUCCESS, 'IS_SUCCESS constant should match expected value');
 		System.assertEquals(
-			' WITH SECURITY_ENFORCED',
-			Constants.WITH_SECURITY_ENFORCED,
-			'WITH_SECURITY_ENFORCED constant should match expected value'
+			'finalStatusValue',
+			Constants.FINALSTATUSVALUE,
+			'FINALSTATUSVALUE constant should match expected value'
 		);
-		System.assertEquals(' LIMIT ', Constants.LIMIT_CLAUSE, 'LIMIT_CLAUSE constant should match expected value');
-		System.assertEquals(' WHERE ', Constants.WHERE_CLAUSE, 'WHERE_CLAUSE constant should match expected value');
-		System.assertEquals(' AND ', Constants.AND_OPERATOR, 'AND_OPERATOR constant should match expected value');
-		System.assertEquals('SELECT ', Constants.SELECT_CLAUSE, 'SELECT_CLAUSE constant should match expected value');
-		System.assertEquals(' FROM ', Constants.FROM_CLAUSE, 'FROM_CLAUSE constant should match expected value');
-		System.assertEquals(' ORDER BY ', Constants.ORDER_BY, 'ORDER_BY constant should match expected value');
-		System.assertEquals('Oracle_Id__c', Constants.ORACLE_ID, 'ORACLE_ID constant should match expected value');
-
-		// Integration Event Object Constants
+		System.assertEquals('error', Constants.ERROR, 'ERROR constant should match expected value');
 		System.assertEquals(
-			'Product2',
-			Constants.INTEGRATION_EVENT_OBJECT_PRODUCT,
-			'INTEGRATION_EVENT_OBJECT_PRODUCT constant should match expected value'
+			'Unknown methodName: ',
+			Constants.UNKNOWN_METHODNAME,
+			'UNKNOWN_METHODNAME constant should match expected value'
 		);
+		System.assertEquals('Regular', Constants.REGULAR, 'REGULAR constant should match expected value');
 		System.assertEquals(
-			'Account',
-			Constants.INTEGRATION_EVENT_OBJECT_ACCOUNT,
-			'INTEGRATION_EVENT_OBJECT_ACCOUNT constant should match expected value'
+			'Contract',
+			Constants.CONTRACT_OBJECT_NAME,
+			'CONTRACT_OBJECT_NAME constant should match expected value'
 		);
+		System.assertEquals('Standard', Constants.STANDARD, 'STANDARD constant should match expected value');
 		System.assertEquals(
-			'Contact',
-			Constants.INTEGRATION_EVENT_OBJECT_CONTACT,
-			'INTEGRATION_EVENT_OBJECT_CONTACT constant should match expected value'
+			'Physical Device',
+			Constants.PHYSICAL_DEVICE,
+			'PHYSICAL_DEVICE constant should match expected value'
 		);
 		System.assertEquals(
-			'Address',
-			Constants.INTEGRATION_EVENT_OBJECT_ADDRESS,
-			'INTEGRATION_EVENT_OBJECT_ADDRESS constant should match expected value'
+			'Device Accessories',
+			Constants.DEVICE_ACCESSORIES,
+			'DEVICE_ACCESSORIES constant should match expected value'
 		);
 		System.assertEquals(
-			'Address_c',
-			Constants.INTEGRATION_EVENT_OBJECT_ADDRESS_C,
-			'INTEGRATION_EVENT_OBJECT_ADDRESS_C constant should match expected value'
+			'Product Activation',
+			Constants.PRODUCT_ACTIVATION,
+			'PRODUCT_ACTIVATION constant should match expected value'
 		);
 		System.assertEquals(
-			'Order',
-			Constants.INTEGRATION_EVENT_OBJECT_ORDER,
-			'INTEGRATION_EVENT_OBJECT_ORDER constant should match expected value'
+			'Update Product',
+			Constants.UPDATE_PRODUCT,
+			'UPDATE_PRODUCT constant should match expected value'
 		);
+		System.assertEquals('NDA', Constants.NDA, 'NDA constant should match expected value');
+		System.assertEquals('Mutual', Constants.MUTUAL, 'MUTUAL constant should match expected value');
 		System.assertEquals(
-			'OrderItem',
-			Constants.INTEGRATION_EVENT_OBJECT_ORDERITEM,
-			'INTEGRATION_EVENT_OBJECT_ORDERITEM constant should match expected value'
-		);
-		System.assertEquals(
-			'LegalEntity',
-			Constants.INTEGRATION_EVENT_OBJECT_LEGALENTITY,
-			'INTEGRATION_EVENT_OBJECT_LEGALENTITY constant should match expected value'
+			'CLM_Send_for_Legal_Approval',
+			Constants.CLM_SEND_FOR_LEGAL_APPROVAL,
+			'CLM_Send_for_Legal_Approval constant should match expected value'
 		);
 
-		// Integration Event Type and Status Constants
+		// Account and Field Constants
+		System.assertEquals('Legal Hold', Constants.LEGAL_HOLD, 'LEGAL_HOLD constant should match expected value');
 		System.assertEquals(
-			'Create',
-			Constants.INTEGRATION_EVENT_TYPE_CREATE,
-			'INTEGRATION_EVENT_TYPE_CREATE constant should match expected value'
+			'Credit or Trade Hold',
+			Constants.CREDIT_TRADE_HOLD,
+			'CREDIT_TRADE_HOLD constant should match expected value'
 		);
 		System.assertEquals(
-			'Update',
-			Constants.INTEGRATION_EVENT_TYPE_UPDATE,
-			'INTEGRATION_EVENT_TYPE_UPDATE constant should match expected value'
+			'Bill_To_Account__c',
+			Constants.BILL_TO_ACCOUNT,
+			'BILL_TO_ACCOUNT constant should match expected value'
+		);
+		System.assertEquals('DEAL_DESK', Constants.DEAL_DESK, 'DEAL_DESK constant should match expected value');
+
+		// Milestone Constants
+		System.assertEquals(
+			'First Response',
+			Constants.MT_FIRST_RESPONSE,
+			'MT_FIRST_RESPONSE constant should match expected value'
 		);
 		System.assertEquals(
-			'Completed',
-			Constants.INTEGRATION_EVENT_STATUS_COMPLETED,
-			'INTEGRATION_EVENT_STATUS_COMPLETED constant should match expected value'
+			'Case Resolution SLA',
+			Constants.MT_CASE_RESOLUTION,
+			'MT_CASE_RESOLUTION constant should match expected value'
 		);
 		System.assertEquals(
-			'Failed',
-			Constants.INTEGRATION_EVENT_STATUS_FAILED,
-			'INTEGRATION_EVENT_STATUS_FAILED constant should match expected value'
+			'First Response Test',
+			Constants.MT_FIRST_RESPONSE_TEST,
+			'MT_FIRST_RESPONSE_TEST constant should match expected value'
 		);
 		System.assertEquals(
-			'IE Created',
-			Constants.INTEGRATION_EVENT_STATUS_IE_CREATED,
-			'INTEGRATION_EVENT_STATUS_IE_CREATED constant should match expected value'
-		);
-		System.assertEquals(
-			'Discarded',
-			Constants.INTEGRATION_EVENT_STATUS_DISCARDED,
-			'INTEGRATION_EVENT_STATUS_DISCARDED constant should match expected value'
-		);
-		System.assertEquals(
-			'New',
-			Constants.INTEGRATION_EVENT_STATUS_NEW,
-			'INTEGRATION_EVENT_STATUS_NEW constant should match expected value'
-		);
-		System.assertEquals(
-			'Success',
-			Constants.INTEGRATION_EVENT_STATUS_SUCCESS,
-			'INTEGRATION_EVENT_STATUS_SUCCESS constant should match expected value'
-		);
-		System.assertEquals(
-			'Ready for Sync',
-			Constants.INTEGRATION_EVENT_STATUS_READY_FOR_SYNC,
-			'INTEGRATION_EVENT_STATUS_READY_FOR_SYNC constant should match expected value'
-		);
-		System.assertEquals(
-			'Event Published',
-			Constants.INTEGRATION_EVENT_SUBSTATUS_EVENT_PUBLISHED,
-			'INTEGRATION_EVENT_SUBSTATUS_EVENT_PUBLISHED constant should match expected value'
-		);
-		System.assertEquals(
-			'Event Consumed',
-			Constants.INTEGRATION_EVENT_SUBSTATUS_EVENT_CONSUMED,
-			'INTEGRATION_EVENT_SUBSTATUS_EVENT_CONSUMED constant should match expected value'
-		);
-		System.assertEquals(
-			'Response Timed Out',
-			Constants.INTEGRATION_EVENT_SUBSTATUS_RESPONSE_TIMED_OUT,
-			'INTEGRATION_EVENT_SUBSTATUS_RESPONSE_TIMED_OUT constant should match expected value'
-		);
-		System.assertEquals(
-			'Service Error',
-			Constants.INTEGRATION_EVENT_ERROR_TYPE_SERVICE_ERROR,
-			'INTEGRATION_EVENT_ERROR_TYPE_SERVICE_ERROR constant should match expected value'
-		);
-		System.assertEquals(
-			'IntegrationEventTriggerHelper',
-			Constants.INTEGRATION_EVENT_TRIGGER_HELPER,
-			'INTEGRATION_EVENT_TRIGGER_HELPER constant should match expected value'
-		);
-		System.assertEquals(
-			'publishRecordSyncForIntegrationEvents',
-			Constants.IE_TRIGGER_HELPER_PUBLISH_METHOD,
-			'IE_TRIGGER_HELPER_PUBLISH_METHOD constant should match expected value'
-		);
-		System.assertEquals(
-			'processIntegrationRecords',
-			Constants.IE_TRIGGER_HELPER_PROCESSRECORD_METHOD,
-			'IE_TRIGGER_HELPER_PROCESSRECORD_METHOD constant should match expected value'
-		);
-		System.assertEquals(
-			'Oracle',
-			Constants.ORACLE_TARGET_SYSTEM,
-			'ORACLE_TARGET_SYSTEM constant should match expected value'
-		);
-		System.assertEquals(
-			'KaseyaOne',
-			Constants.K1_TARGET_SYSTEM,
-			'K1_TARGET_SYSTEM constant should match expected value'
-		);
-		System.assertEquals(
-			'Queued',
-			Constants.INTEGRATION_EVENT_STATUS_QUEUED,
-			'INTEGRATION_EVENT_STATUS_QUEUED constant should match expected value'
-		);
-		System.assertEquals(
-			'Outbound',
-			Constants.INTEGRATION_EVENT_DIRECTION_OUTBOUND,
-			'INTEGRATION_EVENT_DIRECTION_OUTBOUND constant should match expected value'
-		);
-		System.assertEquals(
-			'Inbound',
-			Constants.INTEGRATION_EVENT_DIRECTION_INBOUND,
-			'INTEGRATION_EVENT_DIRECTION_INBOUND constant should match expected value'
+			'Case Resolution SLA Test',
+			Constants.MT_CASE_RESOLUTION_TEST,
+			'MT_CASE_RESOLUTION_TEST constant should match expected value'
 		);
 
-		// Oracle Response Processing Constants
+		// Case Record Type Constants
 		System.assertEquals(
-			'Device Fulfilment',
-			Constants.BUSINESS_EVENT_DEVICE_FULFILLMENT,
-			'BUSINESS_EVENT_DEVICE_FULFILLMENT constant should match expected value'
+			'Billing',
+			Constants.CASE_BILLING_OPS_DEV,
+			'CASE_BILLING_OPS_DEV constant should match expected value'
 		);
 		System.assertEquals(
-			'Awaiting Shipping',
-			Constants.FULFILLMENT_STATUS_AWAITING_SHIPPING,
-			'FULFILLMENT_STATUS_AWAITING_SHIPPING constant should match expected value'
+			'Renewal_Ops',
+			Constants.CASE_REN_OPS_DEV,
+			'CASE_REN_OPS_DEV constant should match expected value'
 		);
 		System.assertEquals(
-			'Shipped',
-			Constants.FULFILLMENT_STATUS_SHIPPED,
-			'FULFILLMENT_STATUS_SHIPPED constant should match expected value'
+			'Standard_Support_Request',
+			Constants.CASE_BIS_OPS_DEV,
+			'CASE_BIS_OPS_DEV constant should match expected value'
 		);
 		System.assertEquals(
-			'Delivered',
-			Constants.FULFILLMENT_STATUS_DELIVERED,
-			'FULFILLMENT_STATUS_DELIVERED constant should match expected value'
-		);
-		System.assertEquals(
-			'Ready for Shipment',
-			Constants.FULFILLMENT_STATUS_READY_FOR_SHIPMENT,
-			'FULFILLMENT_STATUS_READY_FOR_SHIPMENT constant should match expected value'
-		);
-		System.assertEquals(
-			'Shipped',
-			Constants.DEVICE_STATUS_SHIPPED,
-			'DEVICE_STATUS_SHIPPED constant should match expected value'
-		);
-		System.assertEquals(
-			'Delivered',
-			Constants.DEVICE_STATUS_DELIVERED,
-			'DEVICE_STATUS_DELIVERED constant should match expected value'
+			'SKU_Support_Request',
+			Constants.CASE_SKU_DEV,
+			'CASE_SKU_DEV constant should match expected value'
 		);
 
-		// Product Status Constants
+		// API and Object Constants
+		System.assertEquals('Case', Constants.CASE_OBJ, 'CASE_OBJ constant should match expected value');
+		System.assertEquals('POST', Constants.APIMETHOD, 'APIMETHOD constant should match expected value');
+		System.assertEquals('Content-Type', Constants.HEADERKEY, 'HEADERKEY constant should match expected value');
 		System.assertEquals(
-			'Early Adoption',
-			Constants.EARLY_ADOPTION,
-			'EARLY_ADOPTION constant should match expected value'
+			'application/json',
+			Constants.HEADERVALUE,
+			'HEADERVALUE constant should match expected value'
 		);
 
-		// Payload Generator Constants
+		// Trial and Amendment Constants
 		System.assertEquals(
-			'integrationEvents',
-			Constants.PAYLOAD_GENERATOR_INTEGRATION_EVENTS,
-			'PAYLOAD_GENERATOR_INTEGRATION_EVENTS constant should match expected value'
+			'Trial Extension',
+			Constants.TRIAL_EXTENSION,
+			'TRIAL_EXTENSION constant should match expected value'
+		);
+		System.assertEquals('Trial', Constants.TRIAL, 'TRIAL constant should match expected value');
+		System.assertEquals('Amendment', Constants.AMENDMENT, 'AMENDMENT constant should match expected value');
+		System.assertEquals(
+			'Cancellation',
+			Constants.CANCELLATION,
+			'CANCELLATION constant should match expected value'
+		);
+		System.assertEquals('Bundle', Constants.BUNDLE, 'BUNDLE constant should match expected value');
+		System.assertEquals(
+			'Warranty Replacement',
+			Constants.WARRANTY_REPLACEMENT,
+			'WARRANTY_REPLACEMENT constant should match expected value'
+		);
+		System.assertEquals('InProgress', Constants.INPROGRESS, 'INPROGRESS constant should match expected value');
+
+		// Revenue Constants (LTCI-4948)
+		System.assertEquals(
+			'EventUploadService',
+			Constants.REVENUE_EVENT_NAME,
+			'REVENUE_EVENT_NAME constant should match expected value'
+		);
+		System.assertEquals('Release', Constants.REVENUE_ACTION, 'REVENUE_ACTION constant should match expected value');
+		System.assertEquals(
+			'Point In Time',
+			Constants.REVENUE_DISTRIBUTION_METHOD_HARDWARE,
+			'REVENUE_DISTRIBUTION_METHOD_HARDWARE constant should match expected value'
 		);
 		System.assertEquals(
-			'header',
-			Constants.PAYLOAD_GENERATOR_HEADER,
-			'PAYLOAD_GENERATOR_HEADER constant should match expected value'
+			'Catch-up in Current Period',
+			Constants.PRIOR_PERIOD_REVENUE_METHOD,
+			'PRIOR_PERIOD_REVENUE_METHOD constant should match expected value'
 		);
 		System.assertEquals(
-			'GroupID__c',
-			Constants.PAYLOAD_GENERATOR_GROUPID,
-			'PAYLOAD_GENERATOR_GROUPID constant should match expected value'
+			'perform revenue release',
+			Constants.USER_COMMENTS,
+			'USER_COMMENTS constant should match expected value'
 		);
 		System.assertEquals(
-			'EventType__c',
-			Constants.PAYLOAD_GENERATOR_EVENT_TYPE,
-			'PAYLOAD_GENERATOR_EVENT_TYPE constant should match expected value'
+			'Ratable',
+			Constants.REVENUE_DISTRIBUTION_METHOD,
+			'REVENUE_DISTRIBUTION_METHOD constant should match expected value'
 		);
+		System.assertEquals('quantity', Constants.KEY_QUANTITY, 'KEY_QUANTITY constant should match expected value');
 		System.assertEquals(
-			'businessIdentifier',
-			Constants.PAYLOAD_GENERATOR_BUSINESS_IDENTIFIER,
-			'PAYLOAD_GENERATOR_BUSINESS_IDENTIFIER constant should match expected value'
-		);
-		System.assertEquals(
-			'Address__c',
-			Constants.PAYLOAD_GENERATOR_ADDRESS_C,
-			'PAYLOAD_GENERATOR_ADDRESS_C constant should match expected value'
-		);
-		System.assertEquals(
-			'Primary_Contact__c',
-			Constants.PAYLOAD_GENERATOR_PRIMARY_CONTACT,
-			'PAYLOAD_GENERATOR_PRIMARY_CONTACT constant should match expected value'
-		);
-		System.assertEquals(
-			'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'',
-			Constants.PAYLOAD_GENERATOR_DATE_FORMAT,
-			'PAYLOAD_GENERATOR_DATE_FORMAT constant should match expected value'
-		);
-		System.assertEquals(
-			'ParentId',
-			Constants.PAYLOAD_GENERATOR_PARENT_ID,
-			'PAYLOAD_GENERATOR_PARENT_ID constant should match expected value'
-		);
-		System.assertEquals(
-			'RecordType',
-			Constants.PAYLOAD_GENERATOR_RECORD_TYPE,
-			'PAYLOAD_GENERATOR_RECORD_TYPE constant should match expected value'
-		);
-		System.assertEquals(
-			'Parent',
-			Constants.PAYLOAD_GENERATOR_PARENT,
-			'PAYLOAD_GENERATOR_PARENT constant should match expected value'
-		);
-		System.assertEquals(
-			'CurrencyIsoCode',
-			Constants.PAYLOAD_GENERATOR_CURRENCY_ISO_CODE,
-			'PAYLOAD_GENERATOR_CURRENCY_ISO_CODE constant should match expected value'
-		);
-		System.assertEquals(
-			'Type',
-			Constants.PAYLOAD_GENERATOR_TYPE_KEY,
-			'PAYLOAD_GENERATOR_TYPE_KEY constant should match expected value'
-		);
-		System.assertEquals(
-			'Address_Type__c',
-			Constants.PAYLOAD_GENERATOR_ADDRESS_OBJECT_ADDRESSTYPE,
-			'PAYLOAD_GENERATOR_ADDRESS_OBJECT_ADDRESSTYPE constant should match expected value'
-		);
-		System.assertEquals(
-			'Ship-To',
-			Constants.PAYLOAD_GENERATOR_ADDRESS_TYPE_SHIP_TO,
-			'PAYLOAD_GENERATOR_ADDRESS_TYPE_SHIP_TO constant should match expected value'
-		);
-		System.assertEquals(
-			'Bill-To',
-			Constants.PAYLOAD_GENERATOR_ADDRESS_TYPE_BILL_TO,
-			'PAYLOAD_GENERATOR_ADDRESS_TYPE_BILL_TO constant should match expected value'
-		);
-		System.assertEquals(
-			'systemName',
-			Constants.PAYLOAD_GENERATOR_SYSTEM_NAME_KEY,
-			'PAYLOAD_GENERATOR_SYSTEM_NAME_KEY constant should match expected value'
-		);
-		System.assertEquals(
-			'Salesforce',
-			Constants.PAYLOAD_GENERATOR_SALESFORCE_VALUE,
-			'PAYLOAD_GENERATOR_SALESFORCE_VALUE constant should match expected value'
-		);
-		System.assertEquals(
-			'transactionId',
-			Constants.PAYLOAD_GENERATOR_TRANSACTION_ID_KEY,
-			'PAYLOAD_GENERATOR_TRANSACTION_ID_KEY constant should match expected value'
-		);
-		System.assertEquals(
-			'requestId',
-			Constants.PAYLOAD_GENERATOR_REQUEST_ID_KEY,
-			'PAYLOAD_GENERATOR_REQUEST_ID_KEY constant should match expected value'
-		);
-		System.assertEquals(
-			'requestPriority',
-			Constants.PAYLOAD_GENERATOR_REQUEST_PRIORITY_KEY,
-			'PAYLOAD_GENERATOR_REQUEST_PRIORITY_KEY constant should match expected value'
-		);
-		System.assertEquals(
-			'Normal',
-			Constants.PAYLOAD_GENERATOR_NORMAL_PRIORITY,
-			'PAYLOAD_GENERATOR_NORMAL_PRIORITY constant should match expected value'
-		);
-		System.assertEquals('payload', Constants.PAYLOAD_KEY, 'PAYLOAD_KEY constant should match expected value');
-		System.assertEquals('lines', Constants.LINES_KEY, 'LINES_KEY constant should match expected value');
-		System.assertEquals(
-			'orderIntegrationEventId',
-			Constants.ORDER_INTEGRATION_EVENT_ID_KEY,
-			'ORDER_INTEGRATION_EVENT_ID_KEY constant should match expected value'
-		);
-		System.assertEquals(
-			'orderLineIntegrationEventId',
-			Constants.ORDER_LINE_INTEGRATION_EVENT_ID_KEY,
-			'ORDER_LINE_INTEGRATION_EVENT_ID_KEY constant should match expected value'
-		);
-		System.assertEquals(
-			'Type',
-			Constants.PAYLOAD_GENERATOR_ACCOUNT_TYPE,
-			'PAYLOAD_GENERATOR_ACCOUNT_TYPE constant should match expected value'
-		);
-		System.assertEquals(
-			'Account_Subtype__c',
-			Constants.PAYLOAD_GENERATOR_ACCOUNT_SUBTYPE,
-			'PAYLOAD_GENERATOR_ACCOUNT_SUBTYPE constant should match expected value'
-		);
-		System.assertEquals(
-			'BusinessEvent__c',
-			Constants.PAYLOAD_GENERATOR_BUSINESS_EVENT,
-			'PAYLOAD_GENERATOR_BUSINESS_EVENT constant should match expected value'
+			'percentage',
+			Constants.KEY_PERCENTAGE,
+			'KEY_PERCENTAGE constant should match expected value'
 		);
 
+		// Auto-Renewal Constants
+		System.assertEquals('PATCH', Constants.PATCH, 'PATCH constant should match expected value');
+		System.assertEquals('refQuote', Constants.REFQUOTE, 'REFQUOTE constant should match expected value');
+		System.assertEquals('120', Constants.RENEWALDATE_120, 'RENEWALDATE_120 constant should match expected value');
+		System.assertEquals('2', Constants.RENEWALDATE_2, 'RENEWALDATE_2 constant should match expected value');
+		System.assertEquals('Renewal', Constants.RENEWAL, 'RENEWAL constant should match expected value');
+		System.assertEquals('Booked', Constants.BOOKED, 'BOOKED constant should match expected value');
+		System.assertEquals(
+			'Auto-Renewal',
+			Constants.AUTO_RENEWAL,
+			'AUTO_RENEWAL constant should match expected value'
+		);
+		System.assertEquals(
+			'Direct Quoting',
+			Constants.DIRECT_QUOTING,
+			'DIRECT_QUOTING constant should match expected value'
+		);
+		System.assertEquals(
+			'0 0 0 1 * ?',
+			Constants.ASSET_RENEWAL_NOTIF_CRON,
+			'ASSET_RENEWAL_NOTIF_CRON constant should match expected value'
+		);
+		System.assertEquals('Renew', Constants.RENEW, 'RENEW constant should match expected value');
+		System.assertEquals(
+			'Cancel and Replace',
+			Constants.CANCEL_AND_REPLACE,
+			'CANCEL_AND_REPLACE constant should match expected value'
+		);
+	}
+
+	@IsTest
+	static void testConstantsCoverageTwo() {
 		// Order Constants
 		System.assertEquals('New', Constants.ORDER_STATUS_NEW, 'ORDER_STATUS_NEW constant should match expected value');
 		System.assertEquals(
@@ -775,7 +634,9 @@ public class ConstantsTest {
 			Constants.GET_ALL_EXCHANGE_RATES,
 			'GET_ALL_EXCHANGE_RATES constant should match expected value'
 		);
-
+	}
+	@IsTest
+	static void testConstantsCoverageThree() {
 		// Test Data Constants
 		System.assertEquals('Test Name', Constants.TESTNAME, 'TESTNAME constant should match expected value');
 		System.assertEquals(
@@ -846,7 +707,377 @@ public class ConstantsTest {
 			Constants.CASE_SALES_OPS_REC_TYPE,
 			'CASE_SALES_OPS_REC_TYPE constant should match expected value'
 		);
+		// Oracle Sync Constants (LTCI-3088)
+		System.assertEquals(
+			'Ready for Re-Sync',
+			Constants.ORACLESYNCSTATUS_READYFORRESYNC,
+			'ORACLESYNCSTATUS_READYFORRESYNC constant should match expected value'
+		);
+		System.assertEquals(
+			'Invoice',
+			Constants.INTEGRATION_EVENT_OBJECT_INVOICE,
+			'INTEGRATION_EVENT_OBJECT_INVOICE constant should match expected value'
+		);
+		System.assertEquals(
+			'CreditMemo',
+			Constants.INTEGRATION_EVENT_OBJECT_CREDITMEMO,
+			'INTEGRATION_EVENT_OBJECT_CREDITMEMO constant should match expected value'
+		);
+		System.assertEquals(
+			'CreditMemoInvApplication',
+			Constants.INTEGRATION_EVENT_OBJECT_CREDITMEMOINVOICEAPPLICATION,
+			'INTEGRATION_EVENT_OBJECT_CREDITMEMOINVOICEAPPLICATION constant should match expected value'
+		);
+		System.assertEquals(
+			'In Progress',
+			Constants.ORACLE_SYNC_STATUS_IN_PROGRESS,
+			'ORACLE_SYNC_STATUS_IN_PROGRESS constant should match expected value'
+		);
+		System.assertEquals(
+			'Standalone',
+			Constants.CREDITMEMO_SOURCEACTION_STANDALONE,
+			'CREDITMEMO_SOURCEACTION_STANDALONE constant should match expected value'
+		);
+		System.assertEquals(
+			'VoidPostedInvoice',
+			Constants.CREDITMEMO_SOURCEACTION_VOIDPOSTEDINVOICE,
+			'CREDITMEMO_SOURCEACTION_VOIDPOSTEDINVOICE constant should match expected value'
+		);
+		System.assertEquals(
+			'Invoice',
+			Constants.CREDITMEMO_SOURCEACTION_INVOICE,
+			'CREDITMEMO_SOURCEACTION_INVOICE constant should match expected value'
+		);
+		System.assertEquals(
+			'NegativeInvoiceLineConversion',
+			Constants.CREDITMEMO_SOURCEACTION_NEGATIVEINVOICELINECONVERSION,
+			'CREDITMEMO_SOURCEACTION_NEGATIVEINVOICELINECONVERSION constant should match expected value'
+		);
+		System.assertEquals(
+			'Header__c',
+			Constants.PLATFORMEVENT_FIELD_HEADER,
+			'PLATFORMEVENT_FIELD_HEADER constant should match expected value'
+		);
+		System.assertEquals(
+			'GroupID__c',
+			Constants.PLATFORMEVENT_FIELD_GROUPID,
+			'PLATFORMEVENT_FIELD_GROUPID constant should match expected value'
+		);
+		System.assertEquals(
+			'EventType__c',
+			Constants.PLATFORMEVENT_FIELD_EVENTTYPE,
+			'PLATFORMEVENT_FIELD_EVENTTYPE constant should match expected value'
+		);
+		System.assertEquals(
+			'IntegrationEvents__c',
+			Constants.PLATFORMEVENT_FIELD_INTEGRATIONEVENTS,
+			'PLATFORMEVENT_FIELD_INTEGRATIONEVENTS constant should match expected value'
+		);
+		System.assertEquals(
+			'In Progress',
+			Constants.INTEGRATION_EVENT_STATUS_IN_PROGRESS,
+			'INTEGRATION_EVENT_STATUS_IN_PROGRESS constant should match expected value'
+		);
+		System.assertEquals(
+			'Posted',
+			Constants.INVOICE_POSTED_STATUS,
+			'INVOICE_POSTED_STATUS constant should match expected value'
+		);
+		System.assertEquals(';', Constants.SEMI_COLON, 'SEMI_COLON constant should match expected value');
 
+		// Reason Constants (LTCI-5696)
+		System.assertEquals(
+			'Cross-Sell',
+			Constants.REASON_CROSS_SELL,
+			'REASON_CROSS_SELL constant should match expected value'
+		);
+		System.assertEquals(
+			'Transfer',
+			Constants.REASON_TRANSFER,
+			'REASON_TRANSFER constant should match expected value'
+		);
+		System.assertEquals('Replace', Constants.REASON_REPLACE, 'REASON_REPLACE constant should match expected value');
+		System.assertEquals('Cancel', Constants.REASON_CANCEL, 'REASON_CANCEL constant should match expected value');
+		System.assertEquals('Add-On', Constants.REASON_ADD_ON, 'REASON_ADD_ON constant should match expected value');
+		System.assertEquals('Upsell', Constants.REASON_UPSELL, 'REASON_UPSELL constant should match expected value');
+		System.assertEquals(
+			'Downsell',
+			Constants.REASON_DOWNSELL,
+			'REASON_DOWNSELL constant should match expected value'
+		);
+		System.assertEquals(
+			'Flat Renewal',
+			Constants.REASON_FLAT_RENEWAL,
+			'REASON_FLAT_RENEWAL constant should match expected value'
+		);
+		System.assertEquals(
+			'Hardware Upgrade',
+			Constants.REASON_HARDWARE_UPGRADE,
+			'REASON_HARDWARE_UPGRADE constant should match expected value'
+		);
+		System.assertEquals(
+			'Field Upgrade (capacity)',
+			Constants.REASON_FIELD_UPGRADE_CAPACITY,
+			'REASON_FIELD_UPGRADE_CAPACITY constant should match expected value'
+		);
+		System.assertEquals(
+			'Retention Upgrade',
+			Constants.REASON_RETENTION_UPGRADE,
+			'REASON_RETENTION_UPGRADE constant should match expected value'
+		);
+		System.assertEquals(
+			'Transfers',
+			Constants.TRANSACTION_TYPE_TRANSFERS,
+			'TRANSACTION_TYPE_TRANSFERS constant should match expected value'
+		);
+		System.assertEquals(
+			'New Business',
+			Constants.TRANSACTION_TYPE_NEW_BUSINESS,
+			'TRANSACTION_TYPE_NEW_BUSINESS constant should match expected value'
+		);
+		System.assertEquals(
+			'Device Upgrade',
+			Constants.TRANSACTION_TYPE_DEVICE_UPGRADE,
+			'TRANSACTION_TYPE_DEVICE_UPGRADE constant should match expected value'
+		);
+
+		// Numeric and Generic Constants
+		System.assertEquals(0, Constants.ZERO, 'ZERO constant should match expected value');
+		System.assertEquals(1, Constants.ONE, 'ONE constant should match expected value');
+		System.assertEquals('All', Constants.ALL, 'ALL constant should match expected value');
+	}
+
+	@IsTest
+	static void testConstantsCoverageFour() {
+		// Integration Event Type and Status Constants
+		System.assertEquals(
+			'Create',
+			Constants.INTEGRATION_EVENT_TYPE_CREATE,
+			'INTEGRATION_EVENT_TYPE_CREATE constant should match expected value'
+		);
+		System.assertEquals(
+			'Update',
+			Constants.INTEGRATION_EVENT_TYPE_UPDATE,
+			'INTEGRATION_EVENT_TYPE_UPDATE constant should match expected value'
+		);
+		System.assertEquals(
+			'Completed',
+			Constants.INTEGRATION_EVENT_STATUS_COMPLETED,
+			'INTEGRATION_EVENT_STATUS_COMPLETED constant should match expected value'
+		);
+		System.assertEquals(
+			'Failed',
+			Constants.INTEGRATION_EVENT_STATUS_FAILED,
+			'INTEGRATION_EVENT_STATUS_FAILED constant should match expected value'
+		);
+		System.assertEquals(
+			'IE Created',
+			Constants.INTEGRATION_EVENT_STATUS_IE_CREATED,
+			'INTEGRATION_EVENT_STATUS_IE_CREATED constant should match expected value'
+		);
+		System.assertEquals(
+			'Discarded',
+			Constants.INTEGRATION_EVENT_STATUS_DISCARDED,
+			'INTEGRATION_EVENT_STATUS_DISCARDED constant should match expected value'
+		);
+		System.assertEquals(
+			'New',
+			Constants.INTEGRATION_EVENT_STATUS_NEW,
+			'INTEGRATION_EVENT_STATUS_NEW constant should match expected value'
+		);
+		System.assertEquals(
+			'Success',
+			Constants.INTEGRATION_EVENT_STATUS_SUCCESS,
+			'INTEGRATION_EVENT_STATUS_SUCCESS constant should match expected value'
+		);
+		System.assertEquals(
+			'Ready for Sync',
+			Constants.INTEGRATION_EVENT_STATUS_READY_FOR_SYNC,
+			'INTEGRATION_EVENT_STATUS_READY_FOR_SYNC constant should match expected value'
+		);
+		System.assertEquals(
+			'Service Error',
+			Constants.INTEGRATION_EVENT_ERROR_TYPE_SERVICE_ERROR,
+			'INTEGRATION_EVENT_ERROR_TYPE_SERVICE_ERROR constant should match expected value'
+		);
+		System.assertEquals(
+			'IntegrationEventTriggerHelper',
+			Constants.INTEGRATION_EVENT_TRIGGER_HELPER,
+			'INTEGRATION_EVENT_TRIGGER_HELPER constant should match expected value'
+		);
+		System.assertEquals(
+			'publishRecordSyncForIntegrationEvents',
+			Constants.IE_TRIGGER_HELPER_PUBLISH_METHOD,
+			'IE_TRIGGER_HELPER_PUBLISH_METHOD constant should match expected value'
+		);
+		System.assertEquals(
+			'processIntegrationRecords',
+			Constants.IE_TRIGGER_HELPER_PROCESSRECORD_METHOD,
+			'IE_TRIGGER_HELPER_PROCESSRECORD_METHOD constant should match expected value'
+		);
+		System.assertEquals(
+			'Oracle',
+			Constants.ORACLE_TARGET_SYSTEM,
+			'ORACLE_TARGET_SYSTEM constant should match expected value'
+		);
+		System.assertEquals(
+			'KaseyaOne',
+			Constants.K1_TARGET_SYSTEM,
+			'K1_TARGET_SYSTEM constant should match expected value'
+		);
+		System.assertEquals(
+			'Queued',
+			Constants.INTEGRATION_EVENT_STATUS_QUEUED,
+			'INTEGRATION_EVENT_STATUS_QUEUED constant should match expected value'
+		);
+		System.assertEquals(
+			'Outbound',
+			Constants.INTEGRATION_EVENT_DIRECTION_OUTBOUND,
+			'INTEGRATION_EVENT_DIRECTION_OUTBOUND constant should match expected value'
+		);
+		System.assertEquals(
+			'Inbound',
+			Constants.INTEGRATION_EVENT_DIRECTION_INBOUND,
+			'INTEGRATION_EVENT_DIRECTION_INBOUND constant should match expected value'
+		);
+		// Payload Generator Constants
+		System.assertEquals(
+			'integrationEvents',
+			Constants.PAYLOAD_GENERATOR_INTEGRATION_EVENTS,
+			'PAYLOAD_GENERATOR_INTEGRATION_EVENTS constant should match expected value'
+		);
+		System.assertEquals(
+			'header',
+			Constants.PAYLOAD_GENERATOR_HEADER,
+			'PAYLOAD_GENERATOR_HEADER constant should match expected value'
+		);
+		System.assertEquals(
+			'GroupID__c',
+			Constants.PAYLOAD_GENERATOR_GROUPID,
+			'PAYLOAD_GENERATOR_GROUPID constant should match expected value'
+		);
+		System.assertEquals(
+			'EventType__c',
+			Constants.PAYLOAD_GENERATOR_EVENT_TYPE,
+			'PAYLOAD_GENERATOR_EVENT_TYPE constant should match expected value'
+		);
+		System.assertEquals(
+			'businessIdentifier',
+			Constants.PAYLOAD_GENERATOR_BUSINESS_IDENTIFIER,
+			'PAYLOAD_GENERATOR_BUSINESS_IDENTIFIER constant should match expected value'
+		);
+		System.assertEquals(
+			'Address__c',
+			Constants.PAYLOAD_GENERATOR_ADDRESS_C,
+			'PAYLOAD_GENERATOR_ADDRESS_C constant should match expected value'
+		);
+		System.assertEquals(
+			'Primary_Contact__c',
+			Constants.PAYLOAD_GENERATOR_PRIMARY_CONTACT,
+			'PAYLOAD_GENERATOR_PRIMARY_CONTACT constant should match expected value'
+		);
+		System.assertEquals(
+			'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'',
+			Constants.PAYLOAD_GENERATOR_DATE_FORMAT,
+			'PAYLOAD_GENERATOR_DATE_FORMAT constant should match expected value'
+		);
+		System.assertEquals(
+			'ParentId',
+			Constants.PAYLOAD_GENERATOR_PARENT_ID,
+			'PAYLOAD_GENERATOR_PARENT_ID constant should match expected value'
+		);
+		System.assertEquals(
+			'RecordType',
+			Constants.PAYLOAD_GENERATOR_RECORD_TYPE,
+			'PAYLOAD_GENERATOR_RECORD_TYPE constant should match expected value'
+		);
+		System.assertEquals(
+			'Parent',
+			Constants.PAYLOAD_GENERATOR_PARENT,
+			'PAYLOAD_GENERATOR_PARENT constant should match expected value'
+		);
+		System.assertEquals(
+			'CurrencyIsoCode',
+			Constants.PAYLOAD_GENERATOR_CURRENCY_ISO_CODE,
+			'PAYLOAD_GENERATOR_CURRENCY_ISO_CODE constant should match expected value'
+		);
+		System.assertEquals(
+			'Type',
+			Constants.PAYLOAD_GENERATOR_TYPE_KEY,
+			'PAYLOAD_GENERATOR_TYPE_KEY constant should match expected value'
+		);
+		System.assertEquals(
+			'Address_Type__c',
+			Constants.PAYLOAD_GENERATOR_ADDRESS_OBJECT_ADDRESSTYPE,
+			'PAYLOAD_GENERATOR_ADDRESS_OBJECT_ADDRESSTYPE constant should match expected value'
+		);
+		System.assertEquals(
+			'Ship-To',
+			Constants.PAYLOAD_GENERATOR_ADDRESS_TYPE_SHIP_TO,
+			'PAYLOAD_GENERATOR_ADDRESS_TYPE_SHIP_TO constant should match expected value'
+		);
+		System.assertEquals(
+			'Bill-To',
+			Constants.PAYLOAD_GENERATOR_ADDRESS_TYPE_BILL_TO,
+			'PAYLOAD_GENERATOR_ADDRESS_TYPE_BILL_TO constant should match expected value'
+		);
+		System.assertEquals(
+			'systemName',
+			Constants.PAYLOAD_GENERATOR_SYSTEM_NAME_KEY,
+			'PAYLOAD_GENERATOR_SYSTEM_NAME_KEY constant should match expected value'
+		);
+		System.assertEquals(
+			'Salesforce',
+			Constants.PAYLOAD_GENERATOR_SALESFORCE_VALUE,
+			'PAYLOAD_GENERATOR_SALESFORCE_VALUE constant should match expected value'
+		);
+		System.assertEquals(
+			'transactionId',
+			Constants.PAYLOAD_GENERATOR_TRANSACTION_ID_KEY,
+			'PAYLOAD_GENERATOR_TRANSACTION_ID_KEY constant should match expected value'
+		);
+		System.assertEquals(
+			'requestId',
+			Constants.PAYLOAD_GENERATOR_REQUEST_ID_KEY,
+			'PAYLOAD_GENERATOR_REQUEST_ID_KEY constant should match expected value'
+		);
+		System.assertEquals(
+			'requestPriority',
+			Constants.PAYLOAD_GENERATOR_REQUEST_PRIORITY_KEY,
+			'PAYLOAD_GENERATOR_REQUEST_PRIORITY_KEY constant should match expected value'
+		);
+		System.assertEquals(
+			'Normal',
+			Constants.PAYLOAD_GENERATOR_NORMAL_PRIORITY,
+			'PAYLOAD_GENERATOR_NORMAL_PRIORITY constant should match expected value'
+		);
+		System.assertEquals('payload', Constants.PAYLOAD_KEY, 'PAYLOAD_KEY constant should match expected value');
+		System.assertEquals('lines', Constants.LINES_KEY, 'LINES_KEY constant should match expected value');
+		System.assertEquals(
+			'orderIntegrationEventId',
+			Constants.ORDER_INTEGRATION_EVENT_ID_KEY,
+			'ORDER_INTEGRATION_EVENT_ID_KEY constant should match expected value'
+		);
+		System.assertEquals(
+			'orderLineIntegrationEventId',
+			Constants.ORDER_LINE_INTEGRATION_EVENT_ID_KEY,
+			'ORDER_LINE_INTEGRATION_EVENT_ID_KEY constant should match expected value'
+		);
+		System.assertEquals(
+			'Type',
+			Constants.PAYLOAD_GENERATOR_ACCOUNT_TYPE,
+			'PAYLOAD_GENERATOR_ACCOUNT_TYPE constant should match expected value'
+		);
+		System.assertEquals(
+			'Account_Subtype__c',
+			Constants.PAYLOAD_GENERATOR_ACCOUNT_SUBTYPE,
+			'PAYLOAD_GENERATOR_ACCOUNT_SUBTYPE constant should match expected value'
+		);
+		System.assertEquals(
+			'BusinessEvent__c',
+			Constants.PAYLOAD_GENERATOR_BUSINESS_EVENT,
+			'PAYLOAD_GENERATOR_BUSINESS_EVENT constant should match expected value'
+		);
 		// Quote Approval Controller Constants
 		System.assertEquals('recordId', Constants.RECORD_ID, 'RECORD_ID constant should match expected value');
 		System.assertEquals('submitter', Constants.SUBMITTER, 'SUBMITTER constant should match expected value');
@@ -881,6 +1112,10 @@ public class ConstantsTest {
 			Constants.QUOTE_VALIDATION,
 			'QUOTE_VALIDATION constant should match expected value'
 		);
+	}
+
+	@IsTest
+	static void testConstantsCoverageFive() {
 		System.assertEquals(
 			'QuoteApprovalController',
 			Constants.QUOTE_APPROVAL_CONTROLLER,
@@ -893,6 +1128,11 @@ public class ConstantsTest {
 			'SUBMIT_QUOTE_FOR_APPROVAL constant should match expected value'
 		);
 
+		System.assertEquals(
+			'Early Adoption',
+			Constants.EARLY_ADOPTION,
+			'EARLY_ADOPTION constant should match expected value'
+		);
 		// CLM Method Name Constants
 		System.assertEquals(
 			'inApprovalProcess',
@@ -1038,345 +1278,42 @@ public class ConstantsTest {
 			Constants.BAAINLEGALREVIEW_STATUS,
 			'BAAINLEGALREVIEW_STATUS constant should match expected value'
 		);
-
-		// Additional CLM Constants
-		System.assertEquals('isSuccess', Constants.IS_SUCCESS, 'IS_SUCCESS constant should match expected value');
+		// Oracle Response Processing Constants
 		System.assertEquals(
-			'finalStatusValue',
-			Constants.FINALSTATUSVALUE,
-			'FINALSTATUSVALUE constant should match expected value'
-		);
-		System.assertEquals('error', Constants.ERROR, 'ERROR constant should match expected value');
-		System.assertEquals(
-			'Unknown methodName: ',
-			Constants.UNKNOWN_METHODNAME,
-			'UNKNOWN_METHODNAME constant should match expected value'
-		);
-		System.assertEquals('Regular', Constants.REGULAR, 'REGULAR constant should match expected value');
-		System.assertEquals(
-			'Contract',
-			Constants.CONTRACT_OBJECT_NAME,
-			'CONTRACT_OBJECT_NAME constant should match expected value'
-		);
-		System.assertEquals('Standard', Constants.STANDARD, 'STANDARD constant should match expected value');
-		System.assertEquals(
-			'Physical Device',
-			Constants.PHYSICAL_DEVICE,
-			'PHYSICAL_DEVICE constant should match expected value'
+			'Device Fulfilment',
+			Constants.BUSINESS_EVENT_DEVICE_FULFILLMENT,
+			'BUSINESS_EVENT_DEVICE_FULFILLMENT constant should match expected value'
 		);
 		System.assertEquals(
-			'Device Accessories',
-			Constants.DEVICE_ACCESSORIES,
-			'DEVICE_ACCESSORIES constant should match expected value'
+			'Awaiting Shipping',
+			Constants.FULFILLMENT_STATUS_AWAITING_SHIPPING,
+			'FULFILLMENT_STATUS_AWAITING_SHIPPING constant should match expected value'
 		);
 		System.assertEquals(
-			'Product Activation',
-			Constants.PRODUCT_ACTIVATION,
-			'PRODUCT_ACTIVATION constant should match expected value'
+			'Shipped',
+			Constants.FULFILLMENT_STATUS_SHIPPED,
+			'FULFILLMENT_STATUS_SHIPPED constant should match expected value'
 		);
 		System.assertEquals(
-			'Update Product',
-			Constants.UPDATE_PRODUCT,
-			'UPDATE_PRODUCT constant should match expected value'
-		);
-		System.assertEquals('NDA', Constants.NDA, 'NDA constant should match expected value');
-		System.assertEquals('Mutual', Constants.MUTUAL, 'MUTUAL constant should match expected value');
-		System.assertEquals(
-			'CLM_Send_for_Legal_Approval',
-			Constants.CLM_SEND_FOR_LEGAL_APPROVAL,
-			'CLM_Send_for_Legal_Approval constant should match expected value'
-		);
-
-		// Account and Field Constants
-		System.assertEquals('Legal Hold', Constants.LEGAL_HOLD, 'LEGAL_HOLD constant should match expected value');
-		System.assertEquals(
-			'Credit or Trade Hold',
-			Constants.CREDIT_TRADE_HOLD,
-			'CREDIT_TRADE_HOLD constant should match expected value'
+			'Delivered',
+			Constants.FULFILLMENT_STATUS_DELIVERED,
+			'FULFILLMENT_STATUS_DELIVERED constant should match expected value'
 		);
 		System.assertEquals(
-			'Bill_To_Account__c',
-			Constants.BILL_TO_ACCOUNT,
-			'BILL_TO_ACCOUNT constant should match expected value'
-		);
-		System.assertEquals('DEAL_DESK', Constants.DEAL_DESK, 'DEAL_DESK constant should match expected value');
-
-		// Milestone Constants
-		System.assertEquals(
-			'First Response',
-			Constants.MT_FIRST_RESPONSE,
-			'MT_FIRST_RESPONSE constant should match expected value'
+			'Ready for Shipment',
+			Constants.FULFILLMENT_STATUS_READY_FOR_SHIPMENT,
+			'FULFILLMENT_STATUS_READY_FOR_SHIPMENT constant should match expected value'
 		);
 		System.assertEquals(
-			'Case Resolution SLA',
-			Constants.MT_CASE_RESOLUTION,
-			'MT_CASE_RESOLUTION constant should match expected value'
+			'Shipped',
+			Constants.DEVICE_STATUS_SHIPPED,
+			'DEVICE_STATUS_SHIPPED constant should match expected value'
 		);
 		System.assertEquals(
-			'First Response Test',
-			Constants.MT_FIRST_RESPONSE_TEST,
-			'MT_FIRST_RESPONSE_TEST constant should match expected value'
+			'Delivered',
+			Constants.DEVICE_STATUS_DELIVERED,
+			'DEVICE_STATUS_DELIVERED constant should match expected value'
 		);
-		System.assertEquals(
-			'Case Resolution SLA Test',
-			Constants.MT_CASE_RESOLUTION_TEST,
-			'MT_CASE_RESOLUTION_TEST constant should match expected value'
-		);
-
-		// Case Record Type Constants
-		System.assertEquals(
-			'Billing',
-			Constants.CASE_BILLING_OPS_DEV,
-			'CASE_BILLING_OPS_DEV constant should match expected value'
-		);
-		System.assertEquals(
-			'Renewal_Ops',
-			Constants.CASE_REN_OPS_DEV,
-			'CASE_REN_OPS_DEV constant should match expected value'
-		);
-		System.assertEquals(
-			'Standard_Support_Request',
-			Constants.CASE_BIS_OPS_DEV,
-			'CASE_BIS_OPS_DEV constant should match expected value'
-		);
-		System.assertEquals(
-			'SKU_Support_Request',
-			Constants.CASE_SKU_DEV,
-			'CASE_SKU_DEV constant should match expected value'
-		);
-
-		// API and Object Constants
-		System.assertEquals('Case', Constants.CASE_OBJ, 'CASE_OBJ constant should match expected value');
-		System.assertEquals('POST', Constants.APIMETHOD, 'APIMETHOD constant should match expected value');
-		System.assertEquals('Content-Type', Constants.HEADERKEY, 'HEADERKEY constant should match expected value');
-		System.assertEquals(
-			'application/json',
-			Constants.HEADERVALUE,
-			'HEADERVALUE constant should match expected value'
-		);
-
-		// Trial and Amendment Constants
-		System.assertEquals(
-			'Trial Extension',
-			Constants.TRIAL_EXTENSION,
-			'TRIAL_EXTENSION constant should match expected value'
-		);
-		System.assertEquals('Trial', Constants.TRIAL, 'TRIAL constant should match expected value');
-		System.assertEquals('Amendment', Constants.AMENDMENT, 'AMENDMENT constant should match expected value');
-		System.assertEquals(
-			'Cancellation',
-			Constants.CANCELLATION,
-			'CANCELLATION constant should match expected value'
-		);
-		System.assertEquals('Bundle', Constants.BUNDLE, 'BUNDLE constant should match expected value');
-		System.assertEquals(
-			'Warranty Replacement',
-			Constants.WARRANTY_REPLACEMENT,
-			'WARRANTY_REPLACEMENT constant should match expected value'
-		);
-		System.assertEquals('InProgress', Constants.INPROGRESS, 'INPROGRESS constant should match expected value');
-
-		// Revenue Constants (LTCI-4948)
-		System.assertEquals(
-			'EventUploadService',
-			Constants.REVENUE_EVENT_NAME,
-			'REVENUE_EVENT_NAME constant should match expected value'
-		);
-		System.assertEquals('Release', Constants.REVENUE_ACTION, 'REVENUE_ACTION constant should match expected value');
-		System.assertEquals(
-			'Point In Time',
-			Constants.REVENUE_DISTRIBUTION_METHOD_HARDWARE,
-			'REVENUE_DISTRIBUTION_METHOD_HARDWARE constant should match expected value'
-		);
-		System.assertEquals(
-			'Catch-up in Current Period',
-			Constants.PRIOR_PERIOD_REVENUE_METHOD,
-			'PRIOR_PERIOD_REVENUE_METHOD constant should match expected value'
-		);
-		System.assertEquals(
-			'perform revenue release',
-			Constants.USER_COMMENTS,
-			'USER_COMMENTS constant should match expected value'
-		);
-		System.assertEquals(
-			'Ratable',
-			Constants.REVENUE_DISTRIBUTION_METHOD,
-			'REVENUE_DISTRIBUTION_METHOD constant should match expected value'
-		);
-		System.assertEquals('quantity', Constants.KEY_QUANTITY, 'KEY_QUANTITY constant should match expected value');
-		System.assertEquals(
-			'percentage',
-			Constants.KEY_PERCENTAGE,
-			'KEY_PERCENTAGE constant should match expected value'
-		);
-
-		// Auto-Renewal Constants
-		System.assertEquals('PATCH', Constants.PATCH, 'PATCH constant should match expected value');
-		System.assertEquals('refQuote', Constants.REFQUOTE, 'REFQUOTE constant should match expected value');
-		System.assertEquals('120', Constants.RENEWALDATE_120, 'RENEWALDATE_120 constant should match expected value');
-		System.assertEquals('2', Constants.RENEWALDATE_2, 'RENEWALDATE_2 constant should match expected value');
-		System.assertEquals('Renewal', Constants.RENEWAL, 'RENEWAL constant should match expected value');
-		System.assertEquals('Booked', Constants.BOOKED, 'BOOKED constant should match expected value');
-		System.assertEquals(
-			'Auto-Renewal',
-			Constants.AUTO_RENEWAL,
-			'AUTO_RENEWAL constant should match expected value'
-		);
-		System.assertEquals(
-			'Direct Quoting',
-			Constants.DIRECT_QUOTING,
-			'DIRECT_QUOTING constant should match expected value'
-		);
-		System.assertEquals(
-			'0 0 0 1 * ?',
-			Constants.ASSET_RENEWAL_NOTIF_CRON,
-			'ASSET_RENEWAL_NOTIF_CRON constant should match expected value'
-		);
-		System.assertEquals('Renew', Constants.RENEW, 'RENEW constant should match expected value');
-		System.assertEquals(
-			'Cancel and Replace',
-			Constants.CANCEL_AND_REPLACE,
-			'CANCEL_AND_REPLACE constant should match expected value'
-		);
-
-		// Oracle Sync Constants (LTCI-3088)
-		System.assertEquals(
-			'Ready for Re-Sync',
-			Constants.ORACLESYNCSTATUS_READYFORRESYNC,
-			'ORACLESYNCSTATUS_READYFORRESYNC constant should match expected value'
-		);
-		System.assertEquals(
-			'Invoice',
-			Constants.INTEGRATION_EVENT_OBJECT_INVOICE,
-			'INTEGRATION_EVENT_OBJECT_INVOICE constant should match expected value'
-		);
-		System.assertEquals(
-			'CreditMemo',
-			Constants.INTEGRATION_EVENT_OBJECT_CREDITMEMO,
-			'INTEGRATION_EVENT_OBJECT_CREDITMEMO constant should match expected value'
-		);
-		System.assertEquals(
-			'CreditMemoInvApplication',
-			Constants.INTEGRATION_EVENT_OBJECT_CREDITMEMOINVOICEAPPLICATION,
-			'INTEGRATION_EVENT_OBJECT_CREDITMEMOINVOICEAPPLICATION constant should match expected value'
-		);
-		System.assertEquals(
-			'In Progress',
-			Constants.ORACLE_SYNC_STATUS_IN_PROGRESS,
-			'ORACLE_SYNC_STATUS_IN_PROGRESS constant should match expected value'
-		);
-		System.assertEquals(
-			'Standalone',
-			Constants.CREDITMEMO_SOURCEACTION_STANDALONE,
-			'CREDITMEMO_SOURCEACTION_STANDALONE constant should match expected value'
-		);
-		System.assertEquals(
-			'VoidPostedInvoice',
-			Constants.CREDITMEMO_SOURCEACTION_VOIDPOSTEDINVOICE,
-			'CREDITMEMO_SOURCEACTION_VOIDPOSTEDINVOICE constant should match expected value'
-		);
-		System.assertEquals(
-			'Invoice',
-			Constants.CREDITMEMO_SOURCEACTION_INVOICE,
-			'CREDITMEMO_SOURCEACTION_INVOICE constant should match expected value'
-		);
-		System.assertEquals(
-			'NegativeInvoiceLineConversion',
-			Constants.CREDITMEMO_SOURCEACTION_NEGATIVEINVOICELINECONVERSION,
-			'CREDITMEMO_SOURCEACTION_NEGATIVEINVOICELINECONVERSION constant should match expected value'
-		);
-		System.assertEquals(
-			'Header__c',
-			Constants.PLATFORMEVENT_FIELD_HEADER,
-			'PLATFORMEVENT_FIELD_HEADER constant should match expected value'
-		);
-		System.assertEquals(
-			'GroupID__c',
-			Constants.PLATFORMEVENT_FIELD_GROUPID,
-			'PLATFORMEVENT_FIELD_GROUPID constant should match expected value'
-		);
-		System.assertEquals(
-			'EventType__c',
-			Constants.PLATFORMEVENT_FIELD_EVENTTYPE,
-			'PLATFORMEVENT_FIELD_EVENTTYPE constant should match expected value'
-		);
-		System.assertEquals(
-			'IntegrationEvents__c',
-			Constants.PLATFORMEVENT_FIELD_INTEGRATIONEVENTS,
-			'PLATFORMEVENT_FIELD_INTEGRATIONEVENTS constant should match expected value'
-		);
-		System.assertEquals(
-			'In Progress',
-			Constants.INTEGRATION_EVENT_STATUS_IN_PROGRESS,
-			'INTEGRATION_EVENT_STATUS_IN_PROGRESS constant should match expected value'
-		);
-		System.assertEquals(
-			'Posted',
-			Constants.INVOICE_POSTED_STATUS,
-			'INVOICE_POSTED_STATUS constant should match expected value'
-		);
-		System.assertEquals(';', Constants.SEMI_COLON, 'SEMI_COLON constant should match expected value');
-
-		// Reason Constants (LTCI-5696)
-		System.assertEquals(
-			'Cross-Sell',
-			Constants.REASON_CROSS_SELL,
-			'REASON_CROSS_SELL constant should match expected value'
-		);
-		System.assertEquals(
-			'Transfer',
-			Constants.REASON_TRANSFER,
-			'REASON_TRANSFER constant should match expected value'
-		);
-		System.assertEquals('Replace', Constants.REASON_REPLACE, 'REASON_REPLACE constant should match expected value');
-		System.assertEquals('Cancel', Constants.REASON_CANCEL, 'REASON_CANCEL constant should match expected value');
-		System.assertEquals('Add-On', Constants.REASON_ADD_ON, 'REASON_ADD_ON constant should match expected value');
-		System.assertEquals('Upsell', Constants.REASON_UPSELL, 'REASON_UPSELL constant should match expected value');
-		System.assertEquals(
-			'Downsell',
-			Constants.REASON_DOWNSELL,
-			'REASON_DOWNSELL constant should match expected value'
-		);
-		System.assertEquals(
-			'Flat Renewal',
-			Constants.REASON_FLAT_RENEWAL,
-			'REASON_FLAT_RENEWAL constant should match expected value'
-		);
-		System.assertEquals(
-			'Hardware Upgrade',
-			Constants.REASON_HARDWARE_UPGRADE,
-			'REASON_HARDWARE_UPGRADE constant should match expected value'
-		);
-		System.assertEquals(
-			'Field Upgrade (capacity)',
-			Constants.REASON_FIELD_UPGRADE_CAPACITY,
-			'REASON_FIELD_UPGRADE_CAPACITY constant should match expected value'
-		);
-		System.assertEquals(
-			'Retention Upgrade',
-			Constants.REASON_RETENTION_UPGRADE,
-			'REASON_RETENTION_UPGRADE constant should match expected value'
-		);
-		System.assertEquals(
-			'Transfers',
-			Constants.TRANSACTION_TYPE_TRANSFERS,
-			'TRANSACTION_TYPE_TRANSFERS constant should match expected value'
-		);
-		System.assertEquals(
-			'New Business',
-			Constants.TRANSACTION_TYPE_NEW_BUSINESS,
-			'TRANSACTION_TYPE_NEW_BUSINESS constant should match expected value'
-		);
-		System.assertEquals(
-			'Device Upgrade',
-			Constants.TRANSACTION_TYPE_DEVICE_UPGRADE,
-			'TRANSACTION_TYPE_DEVICE_UPGRADE constant should match expected value'
-		);
-
-		// Numeric and Generic Constants
-		System.assertEquals(0, Constants.ZERO, 'ZERO constant should match expected value');
-		System.assertEquals(1, Constants.ONE, 'ONE constant should match expected value');
-		System.assertEquals('All', Constants.ALL, 'ALL constant should match expected value');
 
 		// GR4VY Constants (LTCI-292)
 		System.assertEquals(
@@ -1454,7 +1391,10 @@ public class ConstantsTest {
 			Constants.GR4VY_RESPONSEPATH_CARDEXPIRY,
 			'GR4VY_RESPONSEPATH_CARDEXPIRY constant should match expected value'
 		);
+	}
 
+	@IsTest
+	static void testConstantsCoverageSix() {
 		// Kaseya 365 Constants (LTCI-5673)
 		System.assertEquals(
 			'S-K365-OPS',
@@ -1492,7 +1432,7 @@ public class ConstantsTest {
 			'K365_STOCK_KEEPING_UNIT_CODE constant should match expected value'
 		);
 		System.assertEquals(
-			'S-K365-EPO-PRO',
+			'S-K365-PRO',
 			Constants.K365_ENDPOINT_PRO_UNIT_CODE,
 			'K365_ENDPOINT_PRO_UNIT_CODE constant should match expected value'
 		);
@@ -1565,74 +1505,6 @@ public class ConstantsTest {
 			'REF_QUOTE_ID constant should match expected value'
 		);
 		System.assertEquals(1.0, Constants.DEFAULT_QUANTITY, 'DEFAULT_QUANTITY constant should match expected value');
-
-		// Team Member Role and Opportunity Constants
-		System.assertEquals(
-			'Renewal Specialist',
-			Constants.TEAM_ROLE_RENEWAL_SPECIALIST,
-			'TEAM_ROLE_RENEWAL_SPECIALIST constant should match expected value'
-		);
-		System.assertEquals(
-			'Manager of Renewals',
-			Constants.TEAM_ROLE_MANAGER_OF_RENEWALS,
-			'TEAM_ROLE_MANAGER_OF_RENEWALS constant should match expected value'
-		);
-		System.assertEquals(
-			'Solution Specialist',
-			Constants.TEAM_ROLE_SOLUTION_SPECIALIST,
-			'TEAM_ROLE_SOLUTION_SPECIALIST constant should match expected value'
-		);
-		System.assertEquals(
-			'BCDR Concierge',
-			Constants.TEAM_ROLE_BCDR_CONCIERGE,
-			'TEAM_ROLE_BCDR_CONCIERGE constant should match expected value'
-		);
-		System.assertEquals(
-			'Edit',
-			Constants.ACCESS_LEVEL_EDIT,
-			'ACCESS_LEVEL_EDIT constant should match expected value'
-		);
-		System.assertEquals(
-			'Closed Lost',
-			Constants.OPPORTUNITY_STAGE_CLOSED_LOST,
-			'OPPORTUNITY_STAGE_CLOSED_LOST constant should match expected value'
-		);
-		System.assertEquals(
-			'Closed Won',
-			Constants.OPPORTUNITY_STAGE_CLOSED_WON,
-			'OPPORTUNITY_STAGE_CLOSED_WON constant should match expected value'
-		);
-		System.assertEquals(
-			'360 Review',
-			Constants.PRODUCT_GROUP_360_REVIEW,
-			'PRODUCT_GROUP_360_REVIEW constant should match expected value'
-		);
-		System.assertEquals(
-			'Endpoint',
-			Constants.PRODUCT_GROUP_ENDPOINT,
-			'PRODUCT_GROUP_ENDPOINT constant should match expected value'
-		);
-		System.assertEquals(
-			'IT Operations',
-			Constants.PRODUCT_GROUP_IT_OPERATIONS,
-			'PRODUCT_GROUP_IT_OPERATIONS constant should match expected value'
-		);
-		System.assertEquals(
-			'TestingAccount',
-			Constants.TEST_ACCOUNT_NAME,
-			'TEST_ACCOUNT_NAME constant should match expected value'
-		);
-		System.assertEquals(
-			'TestingOpportunity',
-			Constants.TEST_OPPORTUNITY_NAME,
-			'TEST_OPPORTUNITY_NAME constant should match expected value'
-		);
-		System.assertEquals(
-			'type',
-			Constants.TYPE_HEADER_PARAMETER,
-			'TYPE_HEADER_PARAMETER constant should match expected value'
-		);
-
 		// Invoice Related Constants
 		System.assertEquals('{}', Constants.EMPTY_JSON_BODY, 'EMPTY_JSON_BODY constant should match expected value');
 		System.assertEquals(
@@ -1708,7 +1580,10 @@ public class ConstantsTest {
 			'REFSHIPADDRESS constant should match expected value'
 		);
 		System.assertEquals('Ignore', Constants.IGNORE, 'IGNORE constant should match expected value');
+	}
 
+	@IsTest
+	static void testConstantsCoverageSeven() {
 		// Quote Line Item Field Constants
 		System.assertEquals('QuoteId', Constants.QUOTE_ID_FIELD, 'QUOTE_ID_FIELD constant should match expected value');
 		System.assertEquals(
@@ -1730,6 +1605,130 @@ public class ConstantsTest {
 			'UnitPrice',
 			Constants.UNIT_PRICE_FIELD,
 			'UNIT_PRICE_FIELD constant should match expected value'
+		);
+		// Team Member Role and Opportunity Constants
+		System.assertEquals(
+			'Renewal Specialist',
+			Constants.TEAM_ROLE_RENEWAL_SPECIALIST,
+			'TEAM_ROLE_RENEWAL_SPECIALIST constant should match expected value'
+		);
+		System.assertEquals(
+			'Manager of Renewals',
+			Constants.TEAM_ROLE_MANAGER_OF_RENEWALS,
+			'TEAM_ROLE_MANAGER_OF_RENEWALS constant should match expected value'
+		);
+		System.assertEquals(
+			'Solution Specialist',
+			Constants.TEAM_ROLE_SOLUTION_SPECIALIST,
+			'TEAM_ROLE_SOLUTION_SPECIALIST constant should match expected value'
+		);
+		System.assertEquals(
+			'BCDR Concierge',
+			Constants.TEAM_ROLE_BCDR_CONCIERGE,
+			'TEAM_ROLE_BCDR_CONCIERGE constant should match expected value'
+		);
+		System.assertEquals(
+			'Edit',
+			Constants.ACCESS_LEVEL_EDIT,
+			'ACCESS_LEVEL_EDIT constant should match expected value'
+		);
+		System.assertEquals(
+			'Closed Lost',
+			Constants.OPPORTUNITY_STAGE_CLOSED_LOST,
+			'OPPORTUNITY_STAGE_CLOSED_LOST constant should match expected value'
+		);
+		System.assertEquals(
+			'Closed Won',
+			Constants.OPPORTUNITY_STAGE_CLOSED_WON,
+			'OPPORTUNITY_STAGE_CLOSED_WON constant should match expected value'
+		);
+		System.assertEquals(
+			'360 Review',
+			Constants.PRODUCT_GROUP_360_REVIEW,
+			'PRODUCT_GROUP_360_REVIEW constant should match expected value'
+		);
+		System.assertEquals(
+			'Endpoint',
+			Constants.PRODUCT_GROUP_ENDPOINT,
+			'PRODUCT_GROUP_ENDPOINT constant should match expected value'
+		);
+		System.assertEquals(
+			'IT Operations',
+			Constants.PRODUCT_GROUP_IT_OPERATIONS,
+			'PRODUCT_GROUP_IT_OPERATIONS constant should match expected value'
+		);
+		System.assertEquals(
+			'TestingAccount',
+			Constants.TEST_ACCOUNT_NAME,
+			'TEST_ACCOUNT_NAME constant should match expected value'
+		);
+		System.assertEquals(
+			'TestingOpportunity',
+			Constants.TEST_OPPORTUNITY_NAME,
+			'TEST_OPPORTUNITY_NAME constant should match expected value'
+		);
+		System.assertEquals(
+			'type',
+			Constants.TYPE_HEADER_PARAMETER,
+			'TYPE_HEADER_PARAMETER constant should match expected value'
+		);
+	}
+
+	@IsTest
+	static void testConstantsCoverageEight() {
+		// SOQL Related Constants
+		System.assertEquals(
+			' WITH SECURITY_ENFORCED',
+			Constants.WITH_SECURITY_ENFORCED,
+			'WITH_SECURITY_ENFORCED constant should match expected value'
+		);
+		System.assertEquals(' LIMIT ', Constants.LIMIT_CLAUSE, 'LIMIT_CLAUSE constant should match expected value');
+		System.assertEquals(' WHERE ', Constants.WHERE_CLAUSE, 'WHERE_CLAUSE constant should match expected value');
+		System.assertEquals(' AND ', Constants.AND_OPERATOR, 'AND_OPERATOR constant should match expected value');
+		System.assertEquals('SELECT ', Constants.SELECT_CLAUSE, 'SELECT_CLAUSE constant should match expected value');
+		System.assertEquals(' FROM ', Constants.FROM_CLAUSE, 'FROM_CLAUSE constant should match expected value');
+		System.assertEquals(' ORDER BY ', Constants.ORDER_BY, 'ORDER_BY constant should match expected value');
+		System.assertEquals('Oracle_Id__c', Constants.ORACLE_ID, 'ORACLE_ID constant should match expected value');
+		// Integration Event Object Constants
+		System.assertEquals(
+			'Product2',
+			Constants.INTEGRATION_EVENT_OBJECT_PRODUCT,
+			'INTEGRATION_EVENT_OBJECT_PRODUCT constant should match expected value'
+		);
+		System.assertEquals(
+			'Account',
+			Constants.INTEGRATION_EVENT_OBJECT_ACCOUNT,
+			'INTEGRATION_EVENT_OBJECT_ACCOUNT constant should match expected value'
+		);
+		System.assertEquals(
+			'Contact',
+			Constants.INTEGRATION_EVENT_OBJECT_CONTACT,
+			'INTEGRATION_EVENT_OBJECT_CONTACT constant should match expected value'
+		);
+		System.assertEquals(
+			'Address',
+			Constants.INTEGRATION_EVENT_OBJECT_ADDRESS,
+			'INTEGRATION_EVENT_OBJECT_ADDRESS constant should match expected value'
+		);
+		System.assertEquals(
+			'Address_c',
+			Constants.INTEGRATION_EVENT_OBJECT_ADDRESS_C,
+			'INTEGRATION_EVENT_OBJECT_ADDRESS_C constant should match expected value'
+		);
+		System.assertEquals(
+			'Order',
+			Constants.INTEGRATION_EVENT_OBJECT_ORDER,
+			'INTEGRATION_EVENT_OBJECT_ORDER constant should match expected value'
+		);
+		System.assertEquals(
+			'OrderItem',
+			Constants.INTEGRATION_EVENT_OBJECT_ORDERITEM,
+			'INTEGRATION_EVENT_OBJECT_ORDERITEM constant should match expected value'
+		);
+		System.assertEquals(
+			'LegalEntity',
+			Constants.INTEGRATION_EVENT_OBJECT_LEGALENTITY,
+			'INTEGRATION_EVENT_OBJECT_LEGALENTITY constant should match expected value'
 		);
 	}
 }

@@ -1,6 +1,11 @@
 public with sharing class RestApiCallout implements IApiCallout {
 	private API_Resource_Endpoint__mdt cfg;
-	private Integer timeout;
+	private Integer timeout = 5000;
+	private final String BEGIN_DELIMITATOR = '}';
+	private final String END_DELIMITATOR = '}';
+	private final String DEFAULT_CONTENT_TYPE = 'application/json';
+	private final Set<String> APPLICATION_JSON_METHODS = new Set<String>{ 'POST', 'PUT', 'PATCH' };
+
 	public RestApiCallout(API_Resource_Endpoint__mdt config) {
 		this.cfg = config;
 	}
@@ -8,7 +13,7 @@ public with sharing class RestApiCallout implements IApiCallout {
 	public HttpResponse performCallout(String requestBody) {
 		Http http = new Http();
 		HttpRequest req = new HttpRequest();
-		timeout = cfg.Timeout__c == null ? 5000 : Integer.valueOf(cfg.Timeout__c);
+		timeout = cfg.Timeout__c != null ? Integer.valueOf(cfg.Timeout__c) : timeout;
 		String endpoint = (cfg.NamedCredential__c != null)
 			? 'callout:' + cfg.NamedCredential__c + cfg.Endpoint__c
 			: cfg.Endpoint__c;
@@ -24,14 +29,16 @@ public with sharing class RestApiCallout implements IApiCallout {
 				for (String k : headers.keySet()) {
 					req.setHeader(k, String.valueOf(headers.get(k)));
 				}
-			} catch (Exception e) {
+			} catch (JSONException e) {
 				// log invalid header JSON
 				System.debug(LoggingLevel.ERROR, 'Invalid Headers JSON: ' + e.getMessage());
+			} catch (Exception e) {
+				System.debug(LoggingLevel.ERROR, 'An error has occurred while setting headers: ' + e.getMessage());
 			}
 		}
 
-		if (req.getMethod() == 'POST' || req.getMethod() == 'PUT' || req.getMethod() == 'PATCH') {
-			req.setHeader('Content-Type', 'application/json');
+		if (APPLICATION_JSON_METHODS.contains(req.getMethod())) {
+			req.setHeader('Content-Type', (cfg.ContentType__c == null) ? DEFAULT_CONTENT_TYPE : cfg.ContentType__c);
 			req.setBody(requestBody);
 		}
 
@@ -53,7 +60,7 @@ public with sharing class RestApiCallout implements IApiCallout {
 					continue;
 				}
 				// no retry: throw a typed exception
-				throw createHttpException(res);
+				throw CalloutExceptionUtility.createHttpException(res);
 			} catch (System.CalloutException ce) {
 				if (attempt < maxRetries) {
 					attempt++;
@@ -66,6 +73,23 @@ public with sharing class RestApiCallout implements IApiCallout {
 		return res;
 	}
 
+	/**
+	 * @description Replace the params given by the custom metadata with values provided in the method
+	 * @param    grossParams   complete Endpoint with params to replace.
+	 * @param    mapEndpointParamsValues   Map<String,String> Map of key->values to replace in the endpoint.
+	 * @return   HttpResponse        The response from the HTTP callout. (HttpResponse)
+	 */
+	@TestVisible
+	private String fetchParams(String grossParams, Map<String, String> mapEndpointParamsValues) {
+		for (String key : mapEndpointParamsValues.keySet()) {
+			grossParams = grossParams.replace(
+				BEGIN_DELIMITATOR + key + END_DELIMITATOR,
+				mapEndpointParamsValues.get(key)
+			);
+		}
+		return grossParams;
+	}
+
 	private Boolean shouldRetry(HttpResponse res) {
 		Integer s = res.getStatusCode();
 		// retry on 429 (rate limit) and 5xx server errors
@@ -75,25 +99,5 @@ public with sharing class RestApiCallout implements IApiCallout {
 	private void exponentialBackoffSleep(Long base, Integer attempt) {
 		// Apex doesn't allow Thread.sleep; use a simple pause via Limits or just increase timeout between attempts
 		timeout = Integer.valueOf(base * Math.pow(2, attempt));
-	}
-
-	private Exception createHttpException(HttpResponse res) {
-		Integer s = res.getStatusCode();
-		String body = res.getBody();
-		if (s == 400) {
-			return new CalloutException('Bad Request: ' + body);
-		}
-		if (s == 401 || s == 403) {
-			return new CalloutException('Authentication/Authorization Error: ' + body);
-		}
-		if (s == 404) {
-			return new CalloutException('Not Found: ' + body);
-		}
-		if (s >= 500) {
-			return new CalloutException('Server Error: ' + s + ' - ' + body);
-		}
-		return new CalloutException('HTTP Error: ' + s + ' - ' + body);
-	}
-	public class CalloutException extends Exception {
 	}
 }
