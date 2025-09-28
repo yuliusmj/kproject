@@ -1,0 +1,61 @@
+{
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[xml]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"apexPMD.commandBufferSize": 3,
+	"apexPMD.rulesets": ["rulesets\\apex_ruleset.xml"],
+	"editor.bracketPairColorization.enabled": true,
+	"editor.fontFamily": "Consolas, 'Courier New','0xProto Nerd Font'",
+	"editor.fontSize": 16,
+	"editor.formatOnSave": true,
+	"editor.minimap.enabled": false,
+	"editor.minimap.showSlider": "always",
+	"editor.minimap.size": "fill",
+	"editor.snippetSuggestions": "top",
+	"editor.tabCompletion": "onlySnippets",
+	"explorer.confirmDelete": false,
+	"git.autofetch": true,
+	"git.blame.editorDecoration.enabled": true,
+	"git.blame.statusBarItem.enabled": true,
+	"git.confirmSync": false,
+	"git.enableSmartCommit": true,
+	"glassit.alpha": 240,
+	"indentRainbow.lightIndicatorStyleLineWidth": 2,
+	"lucodear-icons.folders.color": "#26a69a",
+	"lucodear-icons.folders.theme": "specific",
+	"prettier.bracketSpacing": false,
+	"prettier.printWidth": 120,
+	"prettier.tabWidth": 4,
+	"prettier.useTabs": true,
+	"redhat.telemetry.enabled": false,
+	"salesforcedx-vscode-apex.java.home": "C:\\Program Files\\Java\\jdk-21",
+	"salesforcedx-vscode-core.clearOutputTab": true,
+	"salesforcedx-vscode-core.retrieve-test-code-coverage": true,
+	"salesforcedx-vscode-core.show-cli-success-msg": true,
+	"salesforcedx-vscode-core.telemetry.enabled": false,
+	"salesforcedx-vscode-lwc.preview.typeScriptSupport": true,
+	"security.allowedUNCHosts": ["wsl.localhost"],
+	"security.workspace.trust.untrustedFiles": "open",
+	"snyk.yesWelcomeNotification": false,
+	"terminal.integrated.defaultProfile.windows": "Git Bash",
+	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.suggest.enabled": true,
+	"window.newWindowDimensions": "maximized",
+	"workbench.iconTheme": "lucodear-icons",
+	"workbench.productIconTheme": "emoji-product-icons",
+	"workbench.sideBar.location": "right",
+	"workbench.tree.indent": 10,
+	"xml.server.preferBinary": true
+}

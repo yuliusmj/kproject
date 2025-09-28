@@ -10,6 +10,7 @@
 		<members>ConstantsTest</members>
 		<members>IApiCallout</members>
 		<members>Integrations_Constants</members>
+		<members>RestApiCallout</members>
 		<members>UtilityHelper</members>
 		<members>UtilityHelperTests</members>
 		<members>fflib_Answer</members>
