@@ -45,6 +45,21 @@ public without sharing class Integrations_Constants {
 	public class Endpoints {
 		public final String ONESOURCE_ADDRESS_VALIDATION = 'OneSource_AddressValidation';
 	}
+	public static final ResponseCodeErrorMessageList RESPONSE_CODE_ERROR_MESSAGE_LIST {
+		get {
+			if (RESPONSE_CODE_ERROR_MESSAGE_LIST == null) {
+				RESPONSE_CODE_ERROR_MESSAGE_LIST = new ResponseCodeErrorMessageList();
+			}
+			return RESPONSE_CODE_ERROR_MESSAGE_LIST;
+		}
+		set;
+	}
+	public class ResponseCodeErrorMessageList {
+		public final String CODE_400 = 'Bad Request';
+		public final String CODE_403 = 'Authentication/Authorization Error';
+		public final String CODE_404 = 'Not Found';
+		public final String CODE_500 = 'Server Error';
+	}
 
 	//******************************************************************************************************
 	// End of groups
@@ -52,10 +67,10 @@ public without sharing class Integrations_Constants {
 	//******************************************************************************************************
 	// Logical section
 	//******************************************************************************************************
-	public final String ENDPOINT_VAR_BEGIN_DELIM = '{';
-	public final String ENDPOINT_VAR_END_DELIM = '}';
-	public final String DEFAULT_CONTENT_TYPE = 'application/json';
-	public final Set<String> APPLICATION_JSON_METHODS = new Set<String>{
+	public static final String ENDPOINT_VAR_BEGIN_DELIM = '{';
+	public static final String ENDPOINT_VAR_END_DELIM = '}';
+	public static final String DEFAULT_CONTENT_TYPE = 'application/json';
+	public static final Set<String> APPLICATION_JSON_METHODS = new Set<String>{
 		HTTP_METHOD.PUT,
 		HTTP_METHOD.POST,
 		HTTP_METHOD.PATCH

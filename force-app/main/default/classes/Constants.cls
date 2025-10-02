@@ -216,6 +216,7 @@ public inherited sharing class Constants {
 	public static final String APPROVED = 'Approved';
 	public static final String PROCESSING = 'Processing';
 	public static final String QUEUED = 'Queued';
+	public static final String INREVIEW = 'In Review';
 
 	//Order Product Status
 	public static final String READY_FOR_PROVISIONING_FULFILLMENT = 'Ready for Provisioning/Fulfillment';
@@ -478,6 +479,8 @@ public inherited sharing class Constants {
 	//LTCI-5673
 	public static final String K365_PRODUCTCODE = 'S-K365-OPS';
 	public static final String KASEYA_365_OPS = 'Kaseya365Ops';
+	public static final String KASEYA_365_USER = 'Kaseya365User';
+	public static final String UPGRADE_ELIGIBLE_KASEYA_365_USER = 'Kaseya 365 User';
 	public static final String KASEYA_365_ENDPOINT = 'Kaseya365EndPoint';
 	public static final String UPGRADE_ELIGIBLE_KASEYA_365_OPS = 'Kaseya 365 Ops';
 	public static final String UPGRADE_ELIGIBLE_KASEYA_365_ENDPOINT = 'Kaseya 365 Endpoint';
@@ -494,6 +497,7 @@ public inherited sharing class Constants {
 	public static final String QUOTE_LINE_ITEM_OBJECT_TYPE = 'QuoteLineItem';
 	public static final String SYSTEM_PRICING_PREF = 'System';
 	public static final String UPDATE_QUOTE_GRAPH_ID = 'updateQuote';
+	public static final String SALES_CATALOG_RATES_PREF = 'Skip';
 	public static final String PRICING_PREF = 'pricingPref';
 	public static final String GRAPH_ID_KEY = 'graphId';
 	public static final String REF_QUOTE_LINE_ITEM_TO_CREATE = 'refQuoteLineItemToCreate';
@@ -539,6 +543,9 @@ public inherited sharing class Constants {
 	public static final String CONFIGURATION_OPTIONS = 'configurationOptions';
 	public static final String REFQUOTELINE = 'refQuoteLine';
 	public static final String PAYLOAD_HEADER = 'PayloadHeader';
+	public static final String PLACE_QUOTE_API = 'Place Quote API';
+	public static final String PLACEQUOTE_QUOTELINEITEM_FIELDS = 'PlaceQuote_QuoteLineItem_Fields';
+	public static final String COMMA = ',';
 
 	//Team Member Role Constants
 	public static final String TEAM_ROLE_RENEWAL_SPECIALIST = 'Renewal Specialist';
@@ -737,14 +744,9 @@ public inherited sharing class Constants {
 	public static final String ORDER_PAYLOAD_TRANS_KEY = 'transactionType';
 	public static final String QUOTETYPE = 'QuoteType';
 	//Usage Staging Constants
-	public static final String INSTANCE_LEVEL = 'Instance';
-	public static final String ASSET_LEVEL = 'Asset';
-	public static final String DEVICE_LEVEL = 'Device';
 	public static final String USAGE_STAGING_STATUS_NEW = 'New';
 	public static final String USAGE_STAGING_STATUS_READY_FOR_PROCESSING = 'Ready for Usage Processing';
 	public static final String PENDING = 'Pending';
-	public static final String OVERAGE = 'Overage';
-	public static final String PROCESSED = 'Processed';
 
 	public static final String ORACLE_ORDER_LINE_ID_FIELD = 'OracleOrderLineID__c';
 	public static final String FULFILLMENT_LINE_ID_FIELD = 'FulfillmentLineID__c';

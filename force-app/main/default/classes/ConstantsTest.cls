@@ -444,16 +444,6 @@ public class ConstantsTest {
 			'ORDER_STATUS_ON_HOLD constant should match expected value'
 		);
 		System.assertEquals(
-			'OrderTriggerHelper',
-			Constants.ORDER_TRIGGER_HELPER,
-			'ORDER_TRIGGER_HELPER constant should match expected value'
-		);
-		System.assertEquals(
-			'createAccountRecordInIntegrationEvent',
-			Constants.ORDER_TRIGGER_HELPER_CREATE_ACCOUNT_METHOD,
-			'ORDER_TRIGGER_HELPER_CREATE_ACCOUNT_METHOD constant should match expected value'
-		);
-		System.assertEquals(
 			'123456',
 			Constants.ORDER_ORACLE_ID,
 			'ORDER_ORACLE_ID constant should match expected value'
@@ -473,11 +463,6 @@ public class ConstantsTest {
 			'AccountTriggerHelper',
 			Constants.ACCOUNT_TRIGGER_HELPER,
 			'ACCOUNT_TRIGGER_HELPER constant should match expected value'
-		);
-		System.assertEquals(
-			'createIntegrationEventsOnAccountUpdate',
-			Constants.ACCOUNT_TRIGGER_HELPER_CREATE_IE_METHOD,
-			'ACCOUNT_TRIGGER_HELPER_CREATE_IE_METHOD constant should match expected value'
 		);
 
 		// User and Out of Office Constants
@@ -899,21 +884,6 @@ public class ConstantsTest {
 			'Service Error',
 			Constants.INTEGRATION_EVENT_ERROR_TYPE_SERVICE_ERROR,
 			'INTEGRATION_EVENT_ERROR_TYPE_SERVICE_ERROR constant should match expected value'
-		);
-		System.assertEquals(
-			'IntegrationEventTriggerHelper',
-			Constants.INTEGRATION_EVENT_TRIGGER_HELPER,
-			'INTEGRATION_EVENT_TRIGGER_HELPER constant should match expected value'
-		);
-		System.assertEquals(
-			'publishRecordSyncForIntegrationEvents',
-			Constants.IE_TRIGGER_HELPER_PUBLISH_METHOD,
-			'IE_TRIGGER_HELPER_PUBLISH_METHOD constant should match expected value'
-		);
-		System.assertEquals(
-			'processIntegrationRecords',
-			Constants.IE_TRIGGER_HELPER_PROCESSRECORD_METHOD,
-			'IE_TRIGGER_HELPER_PROCESSRECORD_METHOD constant should match expected value'
 		);
 		System.assertEquals(
 			'Oracle',

@@ -1,25 +1,68 @@
+/*************************************************************************************************************
+ * @name			RestApiCallout
+ * @author			Renato Vera <k-renato.vera@kaseya.com>
+ * @created			26 / 09 / 2025
+ * @description		Description of your code
+ *
+ * Changes (version)
+ * -----------------------------------------------------------------------------------------------------------
+ * 				No.		Date			Author					Description
+ * 				----	------------	--------------------	----------------------------------------------
+ * @version		1.0		2025-09-26		Renato Vera			Changes desription
+ *
+ **************************************************************************************************************/
+@SuppressWarnings('PMD.CyclomaticComplexity,PMD.StdCyclomaticComplexity')
 public with sharing class RestApiCallout implements IApiCallout {
 	private API_Resource_Endpoint__mdt cfg;
 	private Integer timeout = 5000;
-	private final String BEGIN_DELIMITATOR = '}';
-	private final String END_DELIMITATOR = '}';
-	private final String DEFAULT_CONTENT_TYPE = 'application/json';
-	private final Set<String> APPLICATION_JSON_METHODS = new Set<String>{ 'POST', 'PUT', 'PATCH' };
+	public Map<String, String> extraHeaders;
+	private Map<String, String> mapEndpointParamsValues;
+	private static final String GET_HTTP = Integrations_Constants.HTTP_METHOD.GET;
 
+	/*********************************************************************************************************
+	 * @name			RestApiCallout
+	 * @author			Renato Vera <k-renato.vera@kaseya.com>
+	 * @created			26 / 09 / 2025
+	 * @description		Constructor
+	 * @param			config API_Resource_Endpoint__mdt : Custom Metadata type
+	 **********************************************************************************************************/
 	public RestApiCallout(API_Resource_Endpoint__mdt config) {
 		this.cfg = config;
+		this.mapEndpointParamsValues = new Map<String, String>();
 	}
 
+	/*********************************************************************************************************
+	 * @name			RestApiCallout
+	 * @author			Renato Vera <k-renato.vera@kaseya.com>
+	 * @created			26 / 09 / 2025
+	 * @description		Constructor
+	 * @param			config API_Resource_Endpoint__mdt : Custom Metadata type
+	 * @param			mapEndpointParamsValues Map<String,String> : params to replace in the endpoint
+	 **********************************************************************************************************/
+	public RestApiCallout(API_Resource_Endpoint__mdt config, Map<String, String> mapEndpointParamsValues) {
+		this.cfg = config;
+		this.mapEndpointParamsValues = mapEndpointParamsValues;
+	}
+
+	/*********************************************************************************************************
+	 * @name			performCallout
+	 * @author			RenatoVera <k-renato.vera@kaseya.com>
+	 * @created			26 / 09 / 2025
+	 * @description		makes the callout based on the configuration
+	 * @param			requestBody String : The request body
+	 * @return			HttpResponse response of the callout
+	 **********************************************************************************************************/
 	public HttpResponse performCallout(String requestBody) {
 		Http http = new Http();
 		HttpRequest req = new HttpRequest();
 		timeout = cfg.Timeout__c != null ? Integer.valueOf(cfg.Timeout__c) : timeout;
+		String fetchEndpoint = fetchParams(cfg.Endpoint__c);
 		String endpoint = (cfg.NamedCredential__c != null)
-			? 'callout:' + cfg.NamedCredential__c + cfg.Endpoint__c
-			: cfg.Endpoint__c;
+			? 'callout:' + cfg.NamedCredential__c + fetchEndpoint
+			: fetchEndpoint;
 
 		req.setEndpoint(endpoint);
-		req.setMethod(cfg.Method__c == null ? 'GET' : cfg.Method__c);
+		req.setMethod(cfg.Method__c == null ? GET_HTTP : cfg.Method__c);
 		req.setTimeout(timeout);
 
 		// Headers from CMDT (JSON expected)
@@ -37,8 +80,18 @@ public with sharing class RestApiCallout implements IApiCallout {
 			}
 		}
 
-		if (APPLICATION_JSON_METHODS.contains(req.getMethod())) {
-			req.setHeader('Content-Type', (cfg.ContentType__c == null) ? DEFAULT_CONTENT_TYPE : cfg.ContentType__c);
+		//Headers from extraHeaders
+		if (extraHeaders != null) {
+			for (String k : extraHeaders.keySet()) {
+				req.setHeader(k, String.valueOf(extraHeaders.get(k)));
+			}
+		}
+
+		if (Integrations_Constants.APPLICATION_JSON_METHODS.contains(req.getMethod())) {
+			req.setHeader(
+				'Content-Type',
+				(cfg.ContentType__c == null) ? Integrations_Constants.DEFAULT_CONTENT_TYPE : cfg.ContentType__c
+			);
 			req.setBody(requestBody);
 		}
 
@@ -76,26 +129,41 @@ public with sharing class RestApiCallout implements IApiCallout {
 	/**
 	 * @description Replace the params given by the custom metadata with values provided in the method
 	 * @param    grossParams   complete Endpoint with params to replace.
-	 * @param    mapEndpointParamsValues   Map<String,String> Map of key->values to replace in the endpoint.
 	 * @return   HttpResponse        The response from the HTTP callout. (HttpResponse)
 	 */
 	@TestVisible
-	private String fetchParams(String grossParams, Map<String, String> mapEndpointParamsValues) {
-		for (String key : mapEndpointParamsValues.keySet()) {
+	private String fetchParams(String grossParams) {
+		for (String key : this.mapEndpointParamsValues.keySet()) {
 			grossParams = grossParams.replace(
-				BEGIN_DELIMITATOR + key + END_DELIMITATOR,
+				Integrations_Constants.ENDPOINT_VAR_BEGIN_DELIM + key + Integrations_Constants.ENDPOINT_VAR_END_DELIM,
 				mapEndpointParamsValues.get(key)
 			);
 		}
 		return grossParams;
 	}
 
+	/*********************************************************************************************************
+	 * @name			shouldRetry
+	 * @author			Renato Vera <k-renato.vera@kaseya.com>
+	 * @created			26 / 09 / 2025
+	 * @description		decide if the request should be retried
+	 * @param			res HttpResponse : The response from the callout
+	 * @return			Boolean : True if the request should be retried
+	 **********************************************************************************************************/
 	private Boolean shouldRetry(HttpResponse res) {
 		Integer s = res.getStatusCode();
 		// retry on 429 (rate limit) and 5xx server errors
 		return (s == 429) || (s >= 500 && s < 600);
 	}
 
+	/*********************************************************************************************************
+	 * @name			exponentialBackoffSleep
+	 * @author			Renato Vera <k-renato.vera@kaseya.com>
+	 * @created			26 / 09 / 2025
+	 * @description		Sleeps for a time based on the exponential backoff algorithm
+	 * @param			base Long : long value
+	 * @param			attempt Integer : number of attempts
+	 **********************************************************************************************************/
 	private void exponentialBackoffSleep(Long base, Integer attempt) {
 		// Apex doesn't allow Thread.sleep; use a simple pause via Limits or just increase timeout between attempts
 		timeout = Integer.valueOf(base * Math.pow(2, attempt));

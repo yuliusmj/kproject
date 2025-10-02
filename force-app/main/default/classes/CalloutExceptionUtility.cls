@@ -24,16 +24,16 @@ public with sharing class CalloutExceptionUtility {
 		Integer responseCode = res.getStatusCode();
 		String body = res.getBody();
 		if (responseCode == 400) {
-			return new CalloutException('Bad Request: ' + body);
+			return new CalloutException(Integrations_Constants.RESPONSE_CODE_ERROR_MESSAGE_LIST.CODE_400 + ': ' + body);
 		}
 		if (responseCode == 401 || responseCode == 403) {
-			return new CalloutException('Authentication/Authorization Error: ' + body);
+			return new CalloutException(Integrations_Constants.RESPONSE_CODE_ERROR_MESSAGE_LIST.CODE_403 + ': ' + body);
 		}
 		if (responseCode == 404) {
-			return new CalloutException('Not Found: ' + body);
+			return new CalloutException(Integrations_Constants.RESPONSE_CODE_ERROR_MESSAGE_LIST.CODE_404 + ': ' + body);
 		}
 		if (responseCode >= 500) {
-			return new CalloutException('Server Error: ' + responseCode + ' - ' + body);
+			return new CalloutException(Integrations_Constants.RESPONSE_CODE_ERROR_MESSAGE_LIST.CODE_500 + ': ' + body);
 		}
 		return new CalloutException('HTTP Error: ' + responseCode + ' - ' + body);
 	}

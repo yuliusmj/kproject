@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>BypassUtility</members>
+		<members>BypassUtilityTests</members>
 		<members>CalloutExceptionUtility</members>
 		<members>CalloutFactory</members>
 		<members>CalloutManager</members>
@@ -58,6 +60,7 @@
 		<name>CustomMetadata</name>
 	</types>
 	<types>
+		<members>Bypass_Settings__c</members>
 		<members>Record_Cleanup__mdt</members>
 		<name>CustomObject</name>
 	</types>
