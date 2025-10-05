@@ -1,6 +1,6 @@
 /*************************************************************************************************************
  * @name			IApiCallout
- * @author			Kaseya Platform team
+ * @author			Julian Hurtado
  * @created			25 / 09 / 2025
  * @description		Interface for the ApiCallout class
  *
@@ -8,13 +8,13 @@
  * -----------------------------------------------------------------------------------------------------------
  * 				No.		Date			Author					Description
  * 				----	------------	--------------------	----------------------------------------------
- * @version		1.0		2025-09-25		Kaseya Platform Team	Class created
+ * @version		1.0		2025-09-25		Julian Hurtado			Class created
  *
  **************************************************************************************************************/
 public interface IApiCallout {
 	/*********************************************************************************************************
 	 * @name			performCallout
-	 * @author			Kaseya Platform Team
+	 * @author			Julian Hurtado
 	 * @created			25 / 09 / 2025
 	 * @description		Sets the request body and performs the callout
 	 * @param			requestBody String : The request body

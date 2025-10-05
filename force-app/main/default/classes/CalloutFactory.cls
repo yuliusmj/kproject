@@ -14,7 +14,7 @@
 public without sharing class CalloutFactory {
 	/*********************************************************************************************************
 	 * @name			get
-	 * @author			JulianHurtado <k-julian.hurtado@kaseya.com>
+	 * @author			JulianHurtado
 	 * @created			25 / 09 / 2025
 	 * @description		Gets the custom metadata for the API resource and returns the correct API callout
 	 * @param			configName String : The name of the configuration

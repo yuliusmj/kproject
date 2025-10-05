@@ -5,5 +5,6 @@
     "**/.sfdx": true
   },
   "salesforcedx-vscode-core.show-cli-success-msg": false, 
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "xml.preferences.showSchemaDocumentationType": "none"
 }

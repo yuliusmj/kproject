@@ -1,6 +1,6 @@
 /*************************************************************************************************************
  * @name			CalloutExceptionUtility
- * @author			JulianHurtado <k-julian.hurtado@kaseya.com>
+ * @author			JulianHurtado
  * @created			26 / 09 / 2025
  * @description		Handles the exceptions from the callout and returns the correct exception message
  *
@@ -14,7 +14,7 @@
 public with sharing class CalloutExceptionUtility {
 	/*********************************************************************************************************
 	 * @name			createHttpException
-	 * @author			JulianHurtado <k-julian.hurtado@kaseya.com>
+	 * @author			JulianHurtado
 	 * @created			26 / 09 / 2025
 	 * @description		Creates the correct exception based on the status code
 	 * @param			res HttpResponse : The response from the callout
@@ -39,7 +39,7 @@ public with sharing class CalloutExceptionUtility {
 	}
 	/*********************************************************************************************************
 	 * @name			CalloutException
-	 * @author			JulianHurtado <k-julian.hurtado@kaseya.com>
+	 * @author			JulianHurtado
 	 * @created			26 / 09 / 2025
 	 * @description		Exception class for the CalloutExceptionUtility class
 	 **********************************************************************************************************/

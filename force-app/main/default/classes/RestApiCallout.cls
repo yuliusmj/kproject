@@ -14,11 +14,11 @@
 @SuppressWarnings('PMD.CyclomaticComplexity,PMD.StdCyclomaticComplexity')
 public with sharing class RestApiCallout implements IApiCallout {
 	private API_Resource_Endpoint__mdt cfg;
+	@TestVisible
 	private Integer timeout = 5000;
-	public Map<String, String> extraHeaders;
+	public static Map<String, String> extraHeaders;
 	private Map<String, String> mapEndpointParamsValues;
 	private static final String GET_HTTP = Integrations_Constants.HTTP_METHOD.GET;
-
 	/*********************************************************************************************************
 	 * @name			RestApiCallout
 	 * @author			Renato Vera <k-renato.vera@kaseya.com>
@@ -30,7 +30,6 @@ public with sharing class RestApiCallout implements IApiCallout {
 		this.cfg = config;
 		this.mapEndpointParamsValues = new Map<String, String>();
 	}
-
 	/*********************************************************************************************************
 	 * @name			RestApiCallout
 	 * @author			Renato Vera <k-renato.vera@kaseya.com>
@@ -43,7 +42,6 @@ public with sharing class RestApiCallout implements IApiCallout {
 		this.cfg = config;
 		this.mapEndpointParamsValues = mapEndpointParamsValues;
 	}
-
 	/*********************************************************************************************************
 	 * @name			performCallout
 	 * @author			RenatoVera <k-renato.vera@kaseya.com>
@@ -60,11 +58,9 @@ public with sharing class RestApiCallout implements IApiCallout {
 		String endpoint = (cfg.NamedCredential__c != null)
 			? 'callout:' + cfg.NamedCredential__c + fetchEndpoint
 			: fetchEndpoint;
-
 		req.setEndpoint(endpoint);
 		req.setMethod(cfg.Method__c == null ? GET_HTTP : cfg.Method__c);
 		req.setTimeout(timeout);
-
 		// Headers from CMDT (JSON expected)
 		if (String.isNotBlank(cfg.Headers__c)) {
 			try {
@@ -75,18 +71,14 @@ public with sharing class RestApiCallout implements IApiCallout {
 			} catch (JSONException e) {
 				// log invalid header JSON
 				System.debug(LoggingLevel.ERROR, 'Invalid Headers JSON: ' + e.getMessage());
-			} catch (Exception e) {
-				System.debug(LoggingLevel.ERROR, 'An error has occurred while setting headers: ' + e.getMessage());
 			}
 		}
-
 		//Headers from extraHeaders
 		if (extraHeaders != null) {
 			for (String k : extraHeaders.keySet()) {
 				req.setHeader(k, String.valueOf(extraHeaders.get(k)));
 			}
 		}
-
 		if (Integrations_Constants.APPLICATION_JSON_METHODS.contains(req.getMethod())) {
 			req.setHeader(
 				'Content-Type',
@@ -94,12 +86,10 @@ public with sharing class RestApiCallout implements IApiCallout {
 			);
 			req.setBody(requestBody);
 		}
-
 		Integer maxRetries = cfg.RetryLimit__c == null ? 0 : Integer.valueOf(cfg.RetryLimit__c);
 		Integer attempt = 0;
 		HttpResponse res;
 		Long backoffMillis = 500; // base backoff
-
 		while (true) {
 			try {
 				res = http.send(req);
@@ -125,12 +115,14 @@ public with sharing class RestApiCallout implements IApiCallout {
 		}
 		return res;
 	}
-
-	/**
-	 * @description Replace the params given by the custom metadata with values provided in the method
-	 * @param    grossParams   complete Endpoint with params to replace.
-	 * @return   HttpResponse        The response from the HTTP callout. (HttpResponse)
-	 */
+	/*********************************************************************************************************
+	 * @name			fechParams
+	 * @author			Julian Hurtado
+	 * @created			04 / 10 / 2025
+	 * @description		Replace the params given by the custom metadata with values provided in the method
+	 * @param			grossParams String : complete Endpoint with params to replace.
+	 * @return			String with the replaced params in the endpoint
+	 **********************************************************************************************************/
 	@TestVisible
 	private String fetchParams(String grossParams) {
 		for (String key : this.mapEndpointParamsValues.keySet()) {
@@ -141,7 +133,6 @@ public with sharing class RestApiCallout implements IApiCallout {
 		}
 		return grossParams;
 	}
-
 	/*********************************************************************************************************
 	 * @name			shouldRetry
 	 * @author			Renato Vera <k-renato.vera@kaseya.com>
@@ -155,7 +146,6 @@ public with sharing class RestApiCallout implements IApiCallout {
 		// retry on 429 (rate limit) and 5xx server errors
 		return (s == 429) || (s >= 500 && s < 600);
 	}
-
 	/*********************************************************************************************************
 	 * @name			exponentialBackoffSleep
 	 * @author			Renato Vera <k-renato.vera@kaseya.com>
@@ -164,6 +154,7 @@ public with sharing class RestApiCallout implements IApiCallout {
 	 * @param			base Long : long value
 	 * @param			attempt Integer : number of attempts
 	 **********************************************************************************************************/
+	@TestVisible
 	private void exponentialBackoffSleep(Long base, Integer attempt) {
 		// Apex doesn't allow Thread.sleep; use a simple pause via Limits or just increase timeout between attempts
 		timeout = Integer.valueOf(base * Math.pow(2, attempt));
